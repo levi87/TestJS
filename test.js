@@ -17,9 +17,9 @@ $httpClient.get(url, function(error, response, data) {
 	//var list0 = tmpB.split("\n");
 	//var list1 = list0[0].split("=");
 	$done({
-			//title:'请求success',
-			content:'hey'
-			//icon:''
+			title:'12345',
+			content:'hey',
+			icon:''
 		});
 });
 })();
