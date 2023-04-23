@@ -6,9 +6,9 @@ $httpClient.get(url, function(error, response, data) {
 	if (error) {
 		console.log(error);
 	        $done({
-			title:'请求错误',
-			content:'ERROR',
-			icon:''
+			//title:'请求错误',
+			content:'ERROR'
+			//icon:''
 		});
 		return;
 	}
