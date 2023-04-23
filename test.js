@@ -3,21 +3,20 @@
 const url = $persistentStore.read("subkey");
 
 $httpClient.get(url, function(error, response, data) {
-	//if (error) {
-		//console.log(error);
+	if (error) {
+		console.log(error);
 	        $done({
 			title:'请求错误',
 			content:'ERROR',
 			icon:''
 		});
 		return;
-	//}
+	}
 	const Base64 = new Base64Code();
 	var tmpB = Base64.decode(data);
 	var list0 = tmpB.split("\n");
 	var list1 = list0[0].split("=");
-
-    	$done({
+	$done({
 		title: '',
 		content: list1[1],
 		icon: ''
