@@ -5,7 +5,7 @@ const url = $persistentStore.read("subkey");
 $httpClient.get(url, function(error, response, data) {
     if (error) {
         console.log(error);
-        $done();
+        $done({tittle:"请求错误",content:error,icon:"airplane"});
         return;
     }
 		const Base64 = new Base64Code();
