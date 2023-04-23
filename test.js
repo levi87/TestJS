@@ -3,28 +3,30 @@
 const url = $persistentStore.read("subkey");
 
 $httpClient.get(url, function(error, response, data) {
-    if (error) {
-        console.log(error);
-        $done({tittle:"请求错误",content:error,icon:"airplane"});
-        return;
-    }
-		const Base64 = new Base64Code();
-		var tmpB = Base64.decode(data);
-		//console.log(Base64.decode(data));
-		var list0 = tmpB.split("\n");
-		var list1 = list0[0].split("=");
-
-    const panel = {
-        title: "",
-        content: list1[1],
-        icon: '',
-        'icon-color': '#000000',
-    };
-
-    //console.log(panel)
-		$done(panel);
+	if (error) {
+		console.log(error);
+	        $done({
+			title:"请求错误",
+			content:"ERROR",
+			icon:"airplane"
+		});
+        	return;
+	}
+	const Base64 = new Base64Code();
+	var tmpB = Base64.decode(data);
+	//console.log(Base64.decode(data));
+	var list0 = tmpB.split("\n");
+	var list1 = list0[0].split("=");
+	
+    	const panel = {
+	        title: "",
+        	content: list1[1],
+	        icon: '',
+      		'icon-color': '#000000',
+	};
+	//console.log(panel)
+	$done(panel);
 });
-
 })();
 
 //base64 完毕
