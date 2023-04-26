@@ -15,7 +15,7 @@ $httpClient.get(url, function(error, response, data) {
     const dataStr = reList[1].split(":");
     const panel = {
 	title:'✈️ 🍶 𝙄𝙣𝙛𝙤',
-	content:'流量剩余：${(dataStr[1])}\n到期时间：${(dateStr[1])}',
+	content:`流量剩余：${(dataStr[1])}\n到期时间：${(dateStr[1])}`,
 	icon:''
     };
     $done(panel);
