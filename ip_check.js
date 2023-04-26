@@ -7,9 +7,10 @@ $httpClient.get(url, function(error, response, data){
     let city = jsonData.city
     let isp = jsonData.isp
     let ip = jsonData.query
+    let org = jsonData.org
   body = {
     title: "节点信息",
-    content: `IP信息：${ip}\n运营商：${isp}\n所在地：${emoji}${country} - ${city}`,
+    content: `IP信息：${ip}\n运营商：${isp}\n所在地：${emoji}${country} - ${city}\nORG：${org}`,
     icon: "globe.asia.australia.fill"
   }
   $done(body);
