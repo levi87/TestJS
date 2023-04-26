@@ -9,9 +9,10 @@ $httpClient.get(url, function(error, response, data){
     let ip = jsonData.query
     let org = jsonData.org
     let as = jsonData.as
+    let timezone = jsonData.timezone
   body = {
     title: "节点信息",
-    content: `IP信息：${ip}\n运营商：${isp}\n所在地：${emoji}${country} - ${city}\nORG：${org}\nAS：${as}`,
+    content: `IP信息：${ip}\n运营商：${isp}\n所在地：${emoji}${country} - ${city}\nORG：${org}\nAS：${as}\n时区：${timezone}`,
     icon: "globe.asia.australia.fill"
   }
   $done(body);
