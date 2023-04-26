@@ -1,28 +1,22 @@
-;(async() =>{
-
 const url = $persistentStore.read("subkey");
 
 $httpClient.get(url, function(error, response, data) {
-	if (error) {
-		console.log(error);
-	        $done({
-			//title:'请求错误',
-			content:'ERROR'
-			//icon:''
-		});
-		return;
-	}
-	const Base64 = new Base64Code();
-	var tmpB = Base64.decode(data);
-	var list0 = tmpB.split("\n");
-	var list1 = list0[0].split("=");
-	$done({
-			title:'✈️ 🍶 𝙄𝙣𝙛𝙤',
-			content:list1[1],
-			icon:''
-		});
+    if (error) {
+	console.log(error);
+	$done();
+	return;
+    }
+    const Base64 = new Base64Code();
+    var tmpB = Base64.decode(data);
+    var list0 = tmpB.split("\n");
+    var list1 = list0[0].split("=");
+    const panel = {
+	title:'✈️ 🍶 𝙄𝙣𝙛𝙤',
+	content:list1[1],
+	icon:''
+    };
+    $done(panel);
 });
-})();
 
 //base64 完毕
 function Base64Code() {
