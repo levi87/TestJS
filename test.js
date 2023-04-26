@@ -17,7 +17,7 @@ $httpClient.get(url, function(error, response, data) {
 	var list0 = tmpB.split("\n");
 	var list1 = list0[0].split("=");
 	$done({
-			title:'𝙄𝙣𝙛𝙤',
+			title:'✈️ 🍶 𝙄𝙣𝙛𝙤',
 			content:list1[1],
 			icon:''
 		});
