@@ -19,7 +19,7 @@ $httpClient.get(url, function(error, response, data) {
     const panel = {
         title: "✈️ 🍺 𝙄𝙣𝙛𝙤",
         content: `已使用流量：${(bwUsed)} GB\n下次重置日期：${month}月1号`,
-        icon: ''
+        icon: 'checkmark.seal'
     };
     
     $done(panel);
