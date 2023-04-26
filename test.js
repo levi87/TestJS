@@ -10,9 +10,12 @@ $httpClient.get(url, function(error, response, data) {
     var tmpB = Base64.decode(data);
     var list0 = tmpB.split("\n");
     var list1 = list0[0].split("=");
+    var reList = list1[1].split(",");
+    const dateStr = reList[0].split(":");
+    const dataStr = reList[1].split(":");
     const panel = {
 	title:'✈️ 🍶 𝙄𝙣𝙛𝙤',
-	content:list1[1],
+	content:'流量剩余：${(dataStr[1])}\n到期时间：${(dateStr[1])}',
 	icon:''
     };
     $done(panel);
