@@ -1,4 +1,4 @@
-const url = $persistentStore.read("jurl");
+const url = $persistentStore.read("lurl");
 
 $httpClient.get(url, function(error, response, data) {
     if (error) {
