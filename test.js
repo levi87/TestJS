@@ -17,7 +17,7 @@ $httpClient.get(url, function(error, response, data) {
     const panel = {
 	title:'✈️ 🍶 𝙄𝙣𝙛𝙤',
 	content:`流量剩余：${(dataStr[1])}B\n到期时间：${(dateStr[1])}`,
-	icon:''
+	icon:'checkmark.seal'
     };
     $done(panel);
 });
