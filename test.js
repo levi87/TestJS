@@ -1,5 +1,6 @@
 const url = $persistentStore.read("subkey");
 
+!(async () => {
 $httpClient.get(url, function(error, response, data) {
     if (error) {
 	console.log(error);
@@ -20,6 +21,23 @@ $httpClient.get(url, function(error, response, data) {
     };
     $done(panel);
 });
+})();
+
+function bytesToSize(bytes) {
+  if (bytes === 0) return "0B";
+  let k = 1024;
+  sizes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  let i = Math.floor(Math.log(bytes) / Math.log(k));
+  return (bytes / Math.pow(k, i)).toFixed(2) + " " + sizes[i];
+};
+
+function formatTime(time) {
+  let dateObj = new Date(time);
+  let year = dateObj.getFullYear();
+  let month = dateObj.getMonth() + 1;
+  let day = dateObj.getDate();
+  return year + "年" + month + "月" + day + "日";
+};
 
 //base64 完毕
 function Base64Code() {
