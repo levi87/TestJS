@@ -54,7 +54,7 @@ function Display(cnt) {
   // let risk = cnt.indexOf(`"risk":`)!=-1 ?  cnt.split(`"risk":`)[1].split("\n")[0] : "NA"
   // risk = "</br><b>"+ "<font  color=>" +"风险等级 " + "</font> : " + "</b>"+ "<font  color=>"+ E2C(risk.replace(/"|,/g,"")) +"</font></br>"
   // return (score+risk)
-  let rexV = /^("(((?=\\\\)\\\\(["\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))|[^"\\\\\\0-\\x1F\\x7F]+)*")$/
+  var rexV = new RegExp('/^("(((?=\\\\)\\\\(["\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))|[^"\\\\\\0-\\x1F\\x7F]+)*")$/')
   let tmp = cnt.match(rexV)
   console.log(tmp)
   return '123'
