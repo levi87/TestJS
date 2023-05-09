@@ -2,43 +2,39 @@
 
 let base_url = "https://scamalytics.com/ip/"
 
-  var url = "https://api.ip.sb/geoip"
-  var opts = {
-      policy: $environment.params
-  };
-  var myRequest = {
-      url: url,
-      opts: opts,
-      timeout: 4000
-  };
- 
+var url = "https://api.ip.sb/geoip"
+!(async () => {
+$httpClient.get(url, function(error, response, data) {
+  if (error) {
+	   console.log(error);
+	   $done();
+	   return;
+  }
+
+  let jsonData = JSON.parse(data)
   var message = ""
   const paras = ["ip","isp","country_code","city"]
   const paran = ["IP","ISP","地区","城市"]
-  $task.fetch(myRequest).then(response => {
-    message = response? json2info(response.body,paras) : ""
-    let ip = JSON.parse(response.body)["ip"]
-      var myRequest1 = {
-      url: base_url+ip,
-      opts: opts,
-      timeout: 4000
-  };
-    $task.fetch(myRequest1).then(response => {
-      message = message + Display(response.body)
-      console.log("url: "+ base_url+ip+"\n\n"+message)
-      message = message+ "------------------------------"+"</br>"+"<font color=#6959CD>"+"<b>节点</b> ➟ " + $environment.params+ "</font>"
-      message =  `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + message + `</p>`
-      $done({"title": "    🔎 IP.SB 查询结果", "htmlMessage": message});
-    }, reason => {
-    message = "</br></br>🛑 查询超时"
-    message = `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: bold;">` + message + `</p>`
-      $done({"title": "🔎 IP.SB 查询结果", "htmlMessage": message});
-  })   
-  }, reason => {
-    message = "</br></br>🛑 查询超时"
-    message = `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: bold;">` + message + `</p>`
-      $done({"title": "🔎 IP.SB 查询结果", "htmlMessage": message});
-  })
+
+  $httpClient.get(base_url + jsonData.ip, function(error, response, data) {
+    if (error) {
+  	   console.log(error);
+       message = "</br></br>🛑 查询超时"
+       message = `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: bold;">` + message + `</p>`
+       $done({title: "🔎 IP.SB 查询结果", content: message});
+  	   return;
+    }
+
+    message = message + Display(response.body)
+    console.log("url: "+ base_url+ip+"\n\n"+message)
+    message = message+ "------------------------------"+"</br>"+"<font color=#6959CD>"+"<b>节点</b> ➟ " + $environment.params+ "</font>"
+    message =  `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + message + `</p>`
+    $done({title: "    🔎 IP.SB 查询结果", content: message});
+
+  });
+
+});
+})();
 
 function json2info(cnt,paras) {
   var res = "------------------------------"
@@ -64,7 +60,7 @@ function Display(cnt) {
 function E2C(cnt){
   res = "NA"
   if (cnt.indexOf("very high")!=-1) {
-    res = "极高风险 ‼️" 
+    res = "极高风险 ‼️"
   } else if(cnt.indexOf("high")!=-1) {
     res = "高风险 ⚠️"
   } else if(cnt.indexOf("medium")!=-1) {
