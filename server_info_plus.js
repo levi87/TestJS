@@ -49,11 +49,15 @@ function json2info(cnt,paras) {
 }
 
 function Display(cnt) {
-  let score = cnt.indexOf(`"score":`)!=-1 ? cnt.split(`"score":`)[1].split("\n")[0]: "NA"
-  score = "</br><b>"+ "<font  color=>" +"欺诈指数 " + "</font> : " + "</b>"+ "<font  color=>"+ score.replace(/"|,/g,"") +"</font></br>"
-  let risk = cnt.indexOf(`"risk":`)!=-1 ?  cnt.split(`"risk":`)[1].split("\n")[0] : "NA"
-  risk = "</br><b>"+ "<font  color=>" +"风险等级 " + "</font> : " + "</b>"+ "<font  color=>"+ E2C(risk.replace(/"|,/g,"")) +"</font></br>"
-  return (score+risk)
+  // let score = cnt.indexOf(`"score":`)!=-1 ? cnt.split(`"score":`)[1].split("\n")[0]: "NA"
+  // score = "</br><b>"+ "<font  color=>" +"欺诈指数 " + "</font> : " + "</b>"+ "<font  color=>"+ score.replace(/"|,/g,"") +"</font></br>"
+  // let risk = cnt.indexOf(`"risk":`)!=-1 ?  cnt.split(`"risk":`)[1].split("\n")[0] : "NA"
+  // risk = "</br><b>"+ "<font  color=>" +"风险等级 " + "</font> : " + "</b>"+ "<font  color=>"+ E2C(risk.replace(/"|,/g,"")) +"</font></br>"
+  // return (score+risk)
+  let rexV = /^("(((?=\\\\)\\\\(["\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))|[^"\\\\\\0-\\x1F\\x7F]+)*")$/
+  let tmp = cnt.match(rexV)
+  console.log(tmp)
+  return '123'
 }
 
 //极高风险‼️、高风险⚠️ 和 中风险🟡 低风险✅
