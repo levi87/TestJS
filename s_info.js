@@ -19,7 +19,7 @@ icon：Panel的图标
   const trafficSize = totalBytes;
   const cpuUsage = `${jsonData.cpu_usage}%`;
   const memUsage = `${jsonData.mem_usage}%`;
-  const updateTime = `${updateTime}`;
+  //const updateTime = `${updateTime}`;
 
   let panel = {};
   let shifts = {
