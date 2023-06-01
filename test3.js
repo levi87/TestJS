@@ -1,6 +1,6 @@
-const url = $persistentStore.read("lurl");
-
-$httpClient.get(url, function(error, response, data) {
+!(async () => {
+let params = getParams($argument);
+$httpClient.get(params.url, function(error, response, data) {
     if (error) {
         console.log(error);
         $done();
@@ -17,10 +17,20 @@ $httpClient.get(url, function(error, response, data) {
     }
     
     const panel = {
-        title: "✈️ 🍺 𝙄𝙣𝙛𝙤",
+        title: params.name || 'Server Info',
         content: `已使用流量：${(bwUsed)} GB\n下次重置日期：${month}月1号`,
         icon: 'checkmark.seal'
     };
     
     $done(panel);
 });
+})();
+
+function getParams(param) {
+  return Object.fromEntries(
+    $argument
+      .split('&')
+      .map((item) => item.split('='))
+      .map(([k, v]) => [k, decodeURIComponent(v)])
+  );
+}
