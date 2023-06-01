@@ -11,7 +11,7 @@ icon：Panel的图标
   const jsonData = JSON.parse(stats.body);
   const updateTime = new Date(jsonData.uptime); // 将时间字符串转换成日期对象
   console.log(updateTime);
-  updateTime.setHours(updateTime.getHours() + 0); // 转换成东八区时间（假定服务器时区为 UTC）
+  updateTime.setHours(updateTime.getHours() + 8); // 转换成东八区时间（假定服务器时区为 UTC）
   const timeString = updateTime.toLocaleString(); // 将日期对象转换成本地时间字符串
   const totalBytes = jsonData.bytes_total;
   const inTraffic = jsonData.bytes_sent;
@@ -19,7 +19,7 @@ icon：Panel的图标
   const trafficSize = totalBytes;
   const cpuUsage = `${jsonData.cpu_usage}%`;
   const memUsage = `${jsonData.mem_usage}%`;
-  const uptime = `${jsonData.uptime}`;
+  const uptime = `${updateTime}`;
 
   let panel = {};
   let shifts = {
@@ -34,8 +34,7 @@ icon：Panel的图标
   panel.content = `CPU:    ${cpuUsage}        |  MEM:    ${memUsage}\n` +
     `Recv: ${outTraffic}  |  Sent: ${inTraffic}\n` +
     `Total: ${trafficSize}\n` +
-    `Uptime: ${jsonData.uptime}\n` +
-    `Last Update: ${timeString}`;
+    `Last Update: ${jsonData.uptime}`;
 
   $done(panel);
 })().catch((e) => {
