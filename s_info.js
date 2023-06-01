@@ -35,7 +35,7 @@ icon：Panel的图标
     `Recv: ${outTraffic}  |  Sent: ${inTraffic}\n` +
     `Total: ${trafficSize}\n` +
     `Uptime: ${formatUptime(jsonData.uptime)}\n` +
-    `Last Update: ${updateTime}`;
+    `Last Update: ${timeString}`;
 
   $done(panel);
 })().catch((e) => {
