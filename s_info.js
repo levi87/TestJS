@@ -16,7 +16,7 @@ icon：Panel的图标
   const totalBytes = jsonData.bytes_total;
   const inTraffic = jsonData.bytes_sent;
   const outTraffic = jsonData.bytes_recv;
-  const trafficSize = bytesToSize(totalBytes);
+  const trafficSize = totalBytes;
   const cpuUsage = `${jsonData.cpu_usage}%`;
   const memUsage = `${jsonData.mem_usage}%`;
   const uptime = `${jsonData.uptime}`;
@@ -32,9 +32,9 @@ icon：Panel的图标
   panel.icon = params.icon || 'bolt.horizontal.icloud.fill';
   panel["icon-color"] = shifts[col];
   panel.content = `CPU:    ${cpuUsage}        |  MEM:    ${memUsage}\n` +
-    `Recv: ${bytesToSize(outTraffic)}  |  Sent: ${bytesToSize(inTraffic)}\n` +
+    `Recv: ${outTraffic}  |  Sent: ${inTraffic}\n` +
     `Total: ${trafficSize}\n` +
-    `Uptime: ${formatUptime(jsonData.uptime)}\n` +
+    `Uptime: ${jsonData.uptime}\n` +
     `Last Update: ${timeString}`;
 
   $done(panel);
