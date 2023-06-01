@@ -19,7 +19,7 @@ icon：Panel的图标
   const trafficSize = totalBytes;
   const cpuUsage = `${jsonData.cpu_usage}%`;
   const memUsage = `${jsonData.mem_usage}%`;
-  const uptime = `${updateTime}`;
+  const updateTime = `${updateTime}`;
 
   let panel = {};
   let shifts = {
@@ -34,7 +34,8 @@ icon：Panel的图标
   panel.content = `CPU:    ${cpuUsage}        |  MEM:    ${memUsage}\n` +
     `Recv: ${outTraffic}  |  Sent: ${inTraffic}\n` +
     `Total: ${trafficSize}\n` +
-    `Last Update: ${uptime}`;
+    `Uptime: ${formatUptime(jsonData.uptime)}\n` +
+    `Last Update: ${updateTime}`;
 
   $done(panel);
 })().catch((e) => {
