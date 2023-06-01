@@ -32,7 +32,7 @@ $httpClient.get(url, function(error, response, data) {
 function getParams(param) {
   return Object.fromEntries(
     $argument
-      .split('@')
+      .split('&')
       .map((item) => item.split('='))
       .map(([k, v]) => [k, decodeURIComponent(v)])
   );
