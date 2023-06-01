@@ -34,7 +34,7 @@ icon：Panel的图标
   panel.content = `CPU:    ${cpuUsage}        |  MEM:    ${memUsage}\n` +
     `Recv: ${outTraffic}  |  Sent: ${inTraffic}\n` +
     `Total: ${trafficSize}\n` +
-    `Last Update: ${jsonData.uptime}`;
+    `Last Update: ${uptime}`;
 
   $done(panel);
 })().catch((e) => {
