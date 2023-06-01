@@ -1,6 +1,6 @@
 !(async () => {
-let url = getParams($argument);
-let name = getParams($argument2);
+let url = $argument;
+let name = $argument2;
 $httpClient.get(url, function(error, response, data) {
     if (error) {
         console.log(error);
