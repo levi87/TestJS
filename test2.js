@@ -1,7 +1,6 @@
 !(async () => {
-let url = $argument;
-let name = $argument2;
-$httpClient.get(url, function(error, response, data) {
+let params = getParams($argument);
+$httpClient.get(params.url, function(error, response, data) {
     if (error) {
         console.log(error);
         $done();
@@ -20,7 +19,7 @@ $httpClient.get(url, function(error, response, data) {
     }
     
     const panel = {
-        title: name || 'Server Info',
+        title: params.name || 'Server Info',
         content: `已使用流量：${(bwUsed / 1000000000).toFixed(3)} GB\n流量剩余：${((bwLimit - bwUsed) / 1000000000).toFixed(3)} GB\n下次重置日期：${month}月${bwResetDay}号`,
         icon: 'checkmark.seal'
     };
@@ -32,8 +31,8 @@ $httpClient.get(url, function(error, response, data) {
 function getParams(param) {
   return Object.fromEntries(
     $argument
-      .split('&')
-      .map((item) => item.split('='))
+      .split('$')
+      .map((item) => item.split('*'))
       .map(([k, v]) => [k, decodeURIComponent(v)])
   );
 }
