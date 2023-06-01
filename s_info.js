@@ -11,7 +11,7 @@ icon：Panel的图标
   const jsonData = JSON.parse(stats.body);
   const updateTime = new Date(); // 将时间字符串转换成日期对象
   console.log(updateTime);
-  updateTime.setHours(updateTime.getHours() + 8); // 转换成东八区时间（假定服务器时区为 UTC）
+  //updateTime.setHours(updateTime.getHours() + 8); // 转换成东八区时间（假定服务器时区为 UTC）
   const timeString = updateTime.toLocaleString(); // 将日期对象转换成本地时间字符串
   const totalBytes = jsonData.bytes_total;
   const inTraffic = jsonData.bytes_sent;
