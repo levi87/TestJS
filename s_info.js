@@ -9,7 +9,7 @@ icon：Panel的图标
   let params = getParams($argument);
   let stats = await httpAPI(params.url);
   const jsonData = JSON.parse(stats.body);
-  const updateTime = new Date(jsonData.uptime).format("yyyy-MM-dd hh:mm:ss"); // 将时间字符串转换成日期对象
+  const updateTime = new Date(jsonData.uptime); // 将时间字符串转换成日期对象
   console.log(updateTime);
   updateTime.setHours(updateTime.getHours() + 8); // 转换成东八区时间（假定服务器时区为 UTC）
   const timeString = updateTime.toLocaleString(); // 将日期对象转换成本地时间字符串
@@ -19,7 +19,7 @@ icon：Panel的图标
   const trafficSize = totalBytes;
   const cpuUsage = `${jsonData.cpu_usage}%`;
   const memUsage = `${jsonData.mem_usage}%`;
-  const uptime = `${updateTime}`;
+  const uptime = `${formatUptime(updateTime)}`;
 
   let panel = {};
   let shifts = {
