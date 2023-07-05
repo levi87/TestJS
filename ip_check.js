@@ -12,7 +12,7 @@ $httpClient.get(url, function(error, response, data){
     let as = jsonData.asn
     let ascode = jsonData.continent_code
     let rn = jsonData.region ? jsonData.region : "NA"
-    let rc = jsonData.region_code ? (" , " + jsonData.region_code) : ""
+    let rc = jsonData.region_code ? ` , ${jsonData.region_code}` : ``
     let timezone = jsonData.timezone
   body = {
     title: "节点信息",
