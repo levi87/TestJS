@@ -13,7 +13,7 @@ $httpClient.get(url, function(error, response, data){
     let timezone = jsonData.timezone
   body = {
     title: "节点信息",
-    content: `IP信息：${ip}\n运营商：${isp}\n国家：${emoji}${country}\n地区：${rn}\n城市：${city}\nORG：${org}\nAS：${as}\n时区：${timezone}`,
+    content: `IP信息：${ip}\n运营商：${isp}\n国家&地区：${emoji}${country} - ${rn}\n城市：${city}\nORG：${org}\nAS：${as}\n时区：${timezone}`,
     icon: "globe.asia.australia.fill"
   }
   $done(body);
