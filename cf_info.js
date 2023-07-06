@@ -50,7 +50,7 @@ const DataBase = {
 			// 构造面板信息
 			let Panel = {};
 			if ($.isStash()) Panel.title = Settings?.Title ?? "𝙒𝘼𝙍𝙋 𝙄𝙣𝙛𝙤"
-			else Panel.title = Settings?.Title ?? "☁ 𝙒𝘼𝙍𝙋 𝙄𝙣𝙛𝙤"
+			else Panel.title = Settings?.Title ?? "𝙒𝘼𝙍𝙋 𝙉𝙤𝙙𝙚 𝙄𝙣𝙛𝙤"
 			// 填充面板信息
 			if ($.isLoon() || $.isQuanX()) {
 				Panel.message = `${Configs.i18n[Language]?.IPv4 ?? "IPv4"}: ${Trace4?.ip ?? Configs.i18n[Language]?.Fail ?? "获取失败"}\n`
