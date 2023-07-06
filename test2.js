@@ -11,8 +11,8 @@ $httpClient.get(params.url, function(error, response, data) {
     const bwLimit = result.monthly_bw_limit_b;
     const bwUsed = result.bw_counter_b;
     const bwResetDay = result.bw_reset_day_of_month;
-    const lineType = ['𝘾𝙈𝙄 ', '𝘾𝙈𝙄+𝙉𝙏𝙏', '𝙄𝙋𝙇𝘾'];
-    const crType = ['𝘾𝙉', '𝙃𝙆', '𝙐𝙎', '𝙇𝘼', '𝙅𝙋', '𝙎𝙂', '𝙐𝙆', '𝙏𝙒', '𝙆𝙍', '𝙇𝙊𝙉𝘿𝙊𝙉'];
+    const lineType = ['𝘾𝙈𝙄 ', '𝘾𝙈𝙄+𝙉𝙏𝙏 ', '𝙄𝙋𝙇𝘾 '];
+    const crType = ['𝘾𝙉 ', '𝙃𝙆 ', '𝙐𝙎 ', '𝙇𝘼 ', '𝙅𝙋 ', '𝙎𝙂 ', '𝙐𝙆 ', '𝙏𝙒 ', '𝙆𝙍 ', '𝙇𝙊𝙉𝘿𝙊𝙉 '];
     
     const today = new Date();
     var month = 0;
@@ -26,7 +26,7 @@ $httpClient.get(params.url, function(error, response, data) {
     }
     
     const panel = {
-        title: `${params.name}${crType[params.crnum]} ${lineType[params.linenum]} 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
+        title: `${params.name}${crType[params.crnum]}${lineType[params.linenum]}𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
         content: `已使用流量：${(bwUsed / 1000000000).toFixed(3)} GB\n流量剩余：${((bwLimit - bwUsed) / 1000000000).toFixed(3)} GB\n下次重置日期：${month}月${bwResetDay}号`,
         icon: 'checkmark.seal'
     };
