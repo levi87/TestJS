@@ -11,7 +11,7 @@ $httpClient.get(params.url, function(error, response, data) {
     const bwLimit = result.monthly_bw_limit_b;
     const bwUsed = result.bw_counter_b;
     const bwResetDay = result.bw_reset_day_of_month;
-    const lineType = ['𝘾𝙈𝙄 ', '𝘾𝙈𝙄+𝙉𝙏𝙏 ', '𝙄𝙋𝙇𝘾 ', ''];
+    const lineType = ['𝘾𝙈𝙄 ', '𝘾𝙈𝙄+𝙉𝙏𝙏 ', '𝙄𝙋𝙇𝘾 ', '', 'GIA', 'GIA-E'];
     const crType = ['𝘾𝙉 ', '𝙃𝙆 ', '𝙐𝙎 ', '𝙇𝘼 ', '𝙅𝙋 ', '𝙎𝙂 ', '𝙐𝙆 ', '𝙏𝙒 ', '𝙆𝙍 ', '𝙇𝙊𝙉𝘿𝙊𝙉 ', ''];
     
     const today = new Date();
