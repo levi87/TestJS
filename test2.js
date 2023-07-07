@@ -16,7 +16,7 @@ $httpClient.get(params.url, function(error, response, data) {
     
     const today = new Date();
     var month = 0;
-    if (bwResetDay >= today.getDay()) {
+    if (bwResetDay >= today.getDate()) {
         month = today.getMonth() + 1;
     } else {
         month = today.getMonth() + 2;
