@@ -13,7 +13,7 @@ $httpClient.get(params.url, function(error, response, data) {
     const bwResetDay = result.bw_reset_day_of_month;
     const lineType = ['𝘾𝙈𝙄 ', '𝘾𝙈𝙄+𝙉𝙏𝙏 ', '𝙄𝙋𝙇𝘾 ', '', '𝙂𝙄𝘼', '𝙂𝙄𝘼-𝙀'];
     const crType = ['𝘾𝙉 ', '𝙃𝙆 ', '𝙐𝙎 ', '𝙇𝘼 ', '𝙅𝙋 ', '𝙎𝙂 ', '𝙐𝙆 ', '𝙏𝙒 ', '𝙆𝙍 ', '𝙇𝙊𝙉𝘿𝙊𝙉 ', ''];
-    const verType = ['𝙑1 ' ,'𝙑2 ' ,'𝙑3 ' , ''];
+    const verType = ['𝗩𝟭 ' ,'𝗩𝟮 ' ,'𝗩𝟯 ' , ''];
     
     const today = new Date();
     var month = 0;
