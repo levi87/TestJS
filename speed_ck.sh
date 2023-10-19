@@ -377,23 +377,25 @@ get_data() {
     local data=()
     local response
     if [[ -z "${CN}" || "${CN}" != true ]]; then
-        local retries=0
-        while [[ $retries -lt 3 ]]; do
-            response=$(curl -sL --max-time 3 "$url")
-            if [[ $? -eq 0 ]]; then
-                break
-            else
-                retries=$((retries + 1))
-                sleep 1
-            fi
-        done
-        if [[ $retries -eq 3 ]]; then
-            url="${cdn_success_url}${url}"
-            response=$(curl -sL --max-time 6 "$url")
-        fi
+        # local retries=0
+        # while [[ $retries -lt 3 ]]; do
+        #     response=$(curl -sL --max-time 3 "$url")
+        #     if [[ $? -eq 0 ]]; then
+        #         break
+        #     else
+        #         retries=$((retries + 1))
+        #         sleep 1
+        #     fi
+        # done
+        # if [[ $retries -eq 3 ]]; then
+        #     url="${cdn_success_url}${url}"
+        #     response=$(curl -sL --max-time 6 "$url")
+        # fi
+        response=$("$url")
     else
         url="${cdn_success_url}${url}"
-        response=$(curl -sL --max-time 10 "$url")
+        # response=$(curl -sL --max-time 10 "$url")
+        response=$("$url")
     fi
     while read line; do
         if [[ -n "$line" ]]; then
@@ -506,7 +508,7 @@ preinfo() {
     echo "             Repo：https://github.com/spiritLHLS/ecsspeed "
     echo "             节点更新: $csv_date  | 脚本更新: $ecsspeednetver "
     echo "——————————————————————————————————————————————————————————————————————————————"
-    echo "——————————————————————————————————build03—————————————————————————————————————"
+    echo "——————————————————————————————————build04—————————————————————————————————————"
 }
 
 selecttest() {
