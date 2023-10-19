@@ -352,14 +352,14 @@ cdn_urls=("https://cdn.spiritlhl.workers.dev/" "https://cdn3.spiritlhl.net/" "ht
 
 check_cdn() {
     _yellow "checking CDN"
-    # local o_url=$1
-    # for cdn_url in "${cdn_urls[@]}"; do
-    #     if curl -sL -k "$cdn_url$o_url" --max-time 6 | grep -q "success" >/dev/null 2>&1; then
-    #         export cdn_success_url="$cdn_url"
-    #         return
-    #     fi
-    #     sleep 0.5
-    # done
+    local o_url=$1
+    for cdn_url in "${cdn_urls[@]}"; do
+        if curl -sL -k "$cdn_url$o_url" --max-time 6 | grep -q "success" >/dev/null 2>&1; then
+            export cdn_success_url="$cdn_url"
+            return
+        fi
+        sleep 0.5
+    done
     export cdn_success_url=""
 }
 
@@ -506,6 +506,7 @@ preinfo() {
     echo "             Repo：https://github.com/spiritLHLS/ecsspeed "
     echo "             节点更新: $csv_date  | 脚本更新: $ecsspeednetver "
     echo "——————————————————————————————————————————————————————————————————————————————"
+    echo "——————————————————————————————————build02—————————————————————————————————————"
 }
 
 selecttest() {
