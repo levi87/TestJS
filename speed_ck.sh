@@ -530,39 +530,39 @@ runtest() {
     case ${selection} in
     7)
         _yellow "checking speedtest server ID"
-        slist=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/TW.csv"))
+        slist=($(get_data "/root/TW.csv"))
         temp_head
         test_list "${slist[@]}" | tee ./speedtest-cli/speedlog.txt
         ;;
     6)
         _yellow "checking speedtest server ID"
-        slist=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/HK.csv"))
+        slist=($(get_data "/root/HK.csv"))
         temp_head
         test_list "${slist[@]}" | tee ./speedtest-cli/speedlog.txt
         ;;
     5)
         _yellow "checking speedtest server ID"
-        slist=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Mobile.csv"))
+        slist=($(get_data "/root/CN_Mobile.csv"))
         temp_head
         test_list "${slist[@]}" | tee ./speedtest-cli/speedlog.txt
         ;;
     4)
         _yellow "checking speedtest server ID"
-        slist=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Telecom.csv"))
+        slist=($(get_data "/root/CN_Telecom.csv"))
         temp_head
         test_list "${slist[@]}" | tee ./speedtest-cli/speedlog.txt
         ;;
     3)
         _yellow "checking speedtest server ID"
-        slist=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Unicom.csv"))
+        slist=($(get_data "/root/CN_Unicom.csv"))
         temp_head
         test_list "${slist[@]}" | tee ./speedtest-cli/speedlog.txt
         ;;
     2)
         _yellow "checking speedtest server ID"
-        CN_Unicom=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Unicom.csv"))
-        CN_Telecom=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Telecom.csv"))
-        CN_Mobile=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Mobile.csv"))
+        CN_Unicom=($(get_data "/root/CN_Unicom.csv"))
+        CN_Telecom=($(get_data "/root/CN_Telecom.csv"))
+        CN_Mobile=($(get_data "/root/CN_Mobile.csv"))
         temp_head
         test_list "${CN_Unicom[@]}" | tee ./speedtest-cli/speedlog.txt
         test_list "${CN_Telecom[@]}" | tee ./speedtest-cli/speedlog.txt
@@ -571,9 +571,9 @@ runtest() {
     1)
         checkping
         _yellow "checking speedtest server ID and find nearest server"
-        CN_Unicom=($(get_nearest_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Unicom.csv"))
-        CN_Telecom=($(get_nearest_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Telecom.csv"))
-        CN_Mobile=($(get_nearest_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Mobile.csv"))
+        CN_Unicom=($(get_nearest_data "/root/CN_Unicom.csv"))
+        CN_Telecom=($(get_nearest_data "/root/CN_Telecom.csv"))
+        CN_Mobile=($(get_nearest_data "/root/CN_Mobile.csv"))
         _blue "就近节点若缺少某运营商，那么该运营商连通性很差，建议使用对应运营商选项全测看看"
         temp_head
         test_list "${CN_Unicom[@]}" | tee ./speedtest-cli/speedlog.txt
