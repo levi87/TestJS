@@ -393,7 +393,7 @@ get_data() {
         # fi
         response=$("$url")
     else
-        url="${cdn_success_url}${url}"
+        # url="${cdn_success_url}${url}"
         # response=$(curl -sL --max-time 10 "$url")
         response=$("$url")
     fi
@@ -508,7 +508,7 @@ preinfo() {
     echo "             Repo：https://github.com/spiritLHLS/ecsspeed "
     echo "             节点更新: $csv_date  | 脚本更新: $ecsspeednetver "
     echo "——————————————————————————————————————————————————————————————————————————————"
-    echo "——————————————————————————————————build04—————————————————————————————————————"
+    echo "——————————————————————————————————build05—————————————————————————————————————"
 }
 
 selecttest() {
