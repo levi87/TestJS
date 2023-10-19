@@ -628,6 +628,6 @@ speedtest_ver="1.2.0"
 install_speedtest
 checkver
 main
-checkerror
+# checkerror
 print_end_time
 global_exit
