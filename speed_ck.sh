@@ -376,27 +376,27 @@ get_data() {
     local url="$1"
     local data=()
     local response
-    if [[ -z "${CN}" || "${CN}" != true ]]; then
-        local retries=0
-        while [[ $retries -lt 3 ]]; do
-            response=$(curl -sL --max-time 3 "$url")
-            if [[ $? -eq 0 ]]; then
-                break
-            else
-                retries=$((retries + 1))
-                sleep 1
-            fi
-        done
-        if [[ $retries -eq 3 ]]; then
-            url="${cdn_success_url}${url}"
-            response=$(curl -sL --max-time 6 "$url")
-        fi
+    # if [[ -z "${CN}" || "${CN}" != true ]]; then
+    #     local retries=0
+    #     while [[ $retries -lt 3 ]]; do
+    #         response=$(curl -sL --max-time 3 "$url")
+    #         if [[ $? -eq 0 ]]; then
+    #             break
+    #         else
+    #             retries=$((retries + 1))
+    #             sleep 1
+    #         fi
+    #     done
+    #     if [[ $retries -eq 3 ]]; then
+    #         url="${cdn_success_url}${url}"
+    #         response=$(curl -sL --max-time 6 "$url")
+    #     fi
         # response=$("$url")
-    else
+    # else
         # url="${cdn_success_url}${url}"
         # response=$(curl -sL --max-time 10 "$url")
-        response=$("$url")
-    fi
+    response=$(<"$url")
+    # fi
     while read line; do
         if [[ -n "$line" ]]; then
             local id=$(echo "$line" | awk -F ',' '{print $1}')
@@ -562,9 +562,9 @@ runtest() {
         ;;
     2)
         _yellow "checking speedtest server ID"
-        CN_Unicom=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Unicom.csv"))
-        CN_Telecom=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Telecom.csv"))
-        CN_Mobile=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/CN_Mobile.csv"))
+        CN_Unicom=($(get_data "/root/CN_Unicom.csv"))
+        CN_Telecom=($(get_data "/root/CN_Telecom.csv"))
+        CN_Mobile=($(get_data "/root/CN_Mobile.csv"))
         temp_head
         test_list "${CN_Unicom[@]}" | tee ./speedtest-cli/speedlog.txt
         test_list "${CN_Telecom[@]}" | tee ./speedtest-cli/speedlog.txt
