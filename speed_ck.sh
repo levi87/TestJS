@@ -395,7 +395,7 @@ get_data() {
     # else
         # url="${cdn_success_url}${url}"
         # response=$(curl -sL --max-time 10 "$url")
-    response=$(<"$url")
+    response=$("$url")
     # fi
     while read line; do
         if [[ -n "$line" ]]; then
@@ -508,7 +508,7 @@ preinfo() {
     echo "             Repo：https://github.com/spiritLHLS/ecsspeed "
     echo "             节点更新: $csv_date  | 脚本更新: $ecsspeednetver "
     echo "——————————————————————————————————————————————————————————————————————————————"
-    echo "——————————————————————————————————build07—————————————————————————————————————"
+    echo "——————————————————————————————————build08—————————————————————————————————————"
 }
 
 selecttest() {
@@ -562,9 +562,9 @@ runtest() {
         ;;
     2)
         _yellow "checking speedtest server ID"
-        CN_Unicom=($(get_data "/root/CN_Unicom.csv"))
-        CN_Telecom=($(get_data "/root/CN_Telecom.csv"))
-        CN_Mobile=($(get_data "/root/CN_Mobile.csv"))
+        CN_Unicom=($(get_data "</root/CN_Unicom.csv"))
+        CN_Telecom=($(get_data "</root/CN_Telecom.csv"))
+        CN_Mobile=($(get_data "</root/CN_Mobile.csv"))
         temp_head
         test_list "${CN_Unicom[@]}" | tee ./speedtest-cli/speedlog.txt
         test_list "${CN_Telecom[@]}" | tee ./speedtest-cli/speedlog.txt
