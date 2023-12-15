@@ -12,6 +12,8 @@ $httpClient.post(params.url, function(error, response, data) {
     // console.log(mybwarr);
     var myaddress = /<(.*?)>([^<]+)<\/ipaddress>/.exec(data);
     // console.log(myaddress[2])
+    var hostName = /<(.*?)>([^<]+)<\/hostname>/.exec(data);
+    var hostIp = /<(.*?)>([^<]+)<\/ipaddress>/.exec(data);
     
     // const result = JSON.parse(data);
     const bwLimit = mybwarr[0];
@@ -33,7 +35,8 @@ $httpClient.post(params.url, function(error, response, data) {
     // }
 
     const panel = {
-        title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
+        // title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
+        title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 ${hostName}・${hostIp}`,
         content: `🆄${(bwUsed / 1000000000).toFixed(3)} GB | 🆁${((bwLimit - bwUsed) / 1000000000).toFixed(3)} GB`,
         icon: 'server.rack'
     };
