@@ -12,8 +12,8 @@ $httpClient.post(params.url, function(error, response, data) {
     // console.log(mybwarr);
     // var myaddress = /<(.*?)>([^<]+)<\/ipaddress>/.exec(data);
     // console.log(myaddress[2])
-    var hostName = /<hostname>(.*?)<\/hostname>/.exec(data);
-    var hostIp = /<ipaddress>(.*?)<\/ipaddress>/.exec(data);
+    var hostName = /<hostname>([^<]+)<\/hostname>/.exec(data);
+    var hostIp = /<ipaddress>([^<]+)<\/ipaddress>/.exec(data);
     
     // const result = JSON.parse(data);
     const bwLimit = mybwarr[0];
