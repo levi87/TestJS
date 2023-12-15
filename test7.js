@@ -38,7 +38,7 @@ $httpClient.post(params.url, function(error, response, data) {
     const panel = {
         // title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
         title: `${titleName}${hostName[1]}•${hostIp[1]}`,
-        content: `🆄${(bwUsed / 1024000000).toFixed(3)} GB | 🆁${((bwLimit - bwUsed) / 1024000000).toFixed(3)} GB`,
+        content: `🆄${(bwUsed / 1024 / 1024 / 1024).toFixed(3)} GB | 🆁${((bwLimit - bwUsed) / 1024 / 1024 / 1024).toFixed(3)} GB`,
         icon: 'xserve'
     };
     
