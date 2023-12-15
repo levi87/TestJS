@@ -36,7 +36,7 @@ $httpClient.post(params.url, function(error, response, data) {
 
     const panel = {
         // title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
-        title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 ${hostName}・${hostIp}`,
+        title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 ${hostName[0]}・${hostIp[0]}`,
         content: `🆄${(bwUsed / 1000000000).toFixed(3)} GB | 🆁${((bwLimit - bwUsed) / 1000000000).toFixed(3)} GB`,
         icon: 'server.rack'
     };
