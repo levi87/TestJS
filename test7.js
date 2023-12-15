@@ -14,6 +14,7 @@ $httpClient.post(params.url, function(error, response, data) {
     // console.log(myaddress[2])
     var hostName = /<hostname>([^<]+)<\/hostname>/.exec(data);
     var hostIp = /<ipaddress>([^<]+)<\/ipaddress>/.exec(data);
+    var titleName = params.name;
     
     // const result = JSON.parse(data);
     const bwLimit = mybwarr[0];
@@ -36,7 +37,7 @@ $httpClient.post(params.url, function(error, response, data) {
 
     const panel = {
         // title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
-        title: `𝙎𝙩𝙧𝙚𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 ${hostName[1]}・${hostIp[1]}`,
+        title: `${titleName} ${hostName[1]}•${hostIp[1]}`,
         content: `🆄${(bwUsed / 1000000000).toFixed(3)} GB | 🆁${((bwLimit - bwUsed) / 1000000000).toFixed(3)} GB`,
         icon: 'server.rack'
     };
