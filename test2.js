@@ -29,7 +29,7 @@ $httpClient.get(params.url, function(error, response, data) {
     const panel = {
         title: `${params.name}${crType[params.crnum]}${lineType[params.linenum]}${verType[params.vernum]}𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
         content: `🆄${(bwUsed / 1000000000).toFixed(3)} GB | 🆁${((bwLimit - bwUsed) / 1000000000).toFixed(3)} GB | ♼${month}-${bwResetDay}`,
-        icon: 'server.rack'
+        icon: 'network.badge.shield.half.filled'
     };
     
     $done(panel);
