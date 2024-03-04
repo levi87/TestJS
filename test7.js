@@ -1,6 +1,9 @@
 !(async () => {
 let params = getParams($argument);
-$httpClient.post(params.url, function(error, response, data) {
+$httpClient.post({
+    url: params.url,
+    insecure: true
+}, function(error, response, data) {
     if (error) {
         console.log(error);
         $done();
