@@ -3292,7 +3292,7 @@ function MediaUnlockTest_EroGameSpace(){
     if [ -n "$result" ]; then
       echo -n -e "\r EroGameSpace:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n"
         return
-    elif [ -z "$countrycode" ]; then
+    else
         echo -n -e "\r EroGameSpace:\t\t\t\t${Font_Red}No${Font_Suffix}\n"
         return
     fi
