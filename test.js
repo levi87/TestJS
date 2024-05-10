@@ -15,7 +15,7 @@ $httpClient.get(params.url, function(error, response, data) {
     const dateStr = reList[0].split(":");
     const dataStr = reList[1].split(":");
     const panel = {
-	title: `${params.name} 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧 𝙄𝙣𝙛𝙤`,
+	title: `${params.name} 𝙉𝙤𝙙𝙚 𝙎𝙚𝙧𝙫𝙚𝙧`,
 	content:`流量剩余：${(dataStr[1])}B\n到期时间：${(dateStr[1])}`,
 	icon:'checkmark.seal'
     };
