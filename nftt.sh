@@ -3547,14 +3547,13 @@ function JP_UnlockTest() {
     MediaUnlockTest_DMMTV ${1} &
     MediaUnlockTest_AbemaTV_IPTest ${1} &
     MediaUnlockTest_Niconico ${1} &
-    MediaUnlockTest_music.jp ${1} &
     MediaUnlockTest_Telasa ${1} &
     MediaUnlockTest_Paravi ${1} &
     MediaUnlockTest_unext ${1} &
     MediaUnlockTest_HuluJP ${1} &
     )
     wait
-    local array=("DMM:" "DMM TV:" "Abema.TV:" "Niconico:" "music.jp:" "Telasa:" "Paravi:" "U-NEXT:" "Hulu Japan:")
+    local array=("DMM:" "DMM TV:" "Abema.TV:" "Niconico:" "Telasa:" "Paravi:" "U-NEXT:" "Hulu Japan:") 
     echo_Result ${result} ${array}
     local result=$(
     MediaUnlockTest_TVer ${1} &
@@ -3580,6 +3579,15 @@ function JP_UnlockTest() {
     )
     wait
     local array=("Kancolle Japan:" "Pretty Derby Japan:" "Konosuba Fantastic Days:" "Princess Connect Re:Dive Japan:" "World Flipper Japan:" "Project Sekai: Colorful Stage:")
+    echo_Result ${result} ${array}
+
+    ShowRegion Music
+    local result=$(
+    MediaUnlockTest_mora ${1} &
+    MediaUnlockTest_music.jp ${1} &
+    )
+    wait
+    local array=("Mora:" "music.jp:") 
     echo_Result ${result} ${array}
     ShowRegion Forum
     MediaUnlockTest_EroGameSpace ${1}
