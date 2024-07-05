@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.0.2'
+VER='1.0.3'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -5529,7 +5529,6 @@ function checkIPConn() {
                 USE_IPV6=1
                 USE_IPV4=0
             fi
-
 
             CURL_DEFAULT_OPTS="${CURL_OPTS}"
             showNetworkInfo
