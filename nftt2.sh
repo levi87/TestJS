@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.0.3'
+VER='1.0.4'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -722,6 +722,17 @@ function MediaUnlockTest_Lemino() {
         '200') echo -n -e "\r Lemino:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n" ;;
         '403') echo -n -e "\r Lemino:\t\t\t\t${Font_Red}No${Font_Suffix}\n" ;;
         *) echo -n -e "\r Lemino:\t\t\t\t${Font_Red}Failed (Error: ${result})${Font_Suffix}\n" ;;
+    esac
+}
+
+MediaUnlockTest_AnimeFesta() {
+    local result=$(curl ${CURL_DEFAULT_OPTS} -fsL 'https://api-animefesta.iowl.jp/v1/titles/1305' -w %{http_code} -o /dev/null -H 'Origin: https://animefesta.iowl.jp' -H 'Priority: u=1, i' -H 'Referer: https://animefesta.iowl.jp/' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-site' -H 'X-Requested-With: XMLHttpRequest' --user-agent "${UA_BROWSER}")
+
+    case "$result" in
+        '000') echo -n -e "\r AnimeFesta:\t\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n" ;;
+        '200') echo -n -e "\r AnimeFesta:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n" ;;
+        '403') echo -n -e "\r AnimeFesta:\t\t\t\t${Font_Red}No${Font_Suffix}\n" ;;
+        *) echo -n -e "\r AnimeFesta:\t\t\t\t${Font_Red}Failed (Error: ${result})${Font_Suffix}\n" ;;
     esac
 }
 
@@ -5146,10 +5157,11 @@ function JP_UnlockTest() {
         MediaUnlockTest_HuluJP &
         MediaUnlockTest_TVer &
         MediaUnlockTest_Lemino &
+        MediaUnlockTest_AnimeFesta &
         MediaUnlockTest_wowow &
     )
     wait
-    local array=("DMM:" "DMM TV:" "Abema.TV:" "Niconico:" "Telasa:" "U-NEXT:" "Hulu Japan:" "TVer:" "Lemino:" "WOWOW:")
+    local array=("DMM:" "DMM TV:" "Abema.TV:" "Niconico:" "Telasa:" "U-NEXT:" "Hulu Japan:" "TVer:" "Lemino:" "AnimeFesta:" "WOWOW:")
     echo_result ${result} ${array}
     local result=$(
         MediaUnlockTest_VideoMarket &
