@@ -11,7 +11,8 @@ else
 fi
 export DEBIAN_FRONTEND=noninteractive
 ecsspeednetver="2024/05/18"
-SERVER_BASE_URL="https://raw.githubusercontent.com/levi87/TestJS/main"
+# SERVER_BASE_URL="https://raw.githubusercontent.com/levi87/TestJS/main"
+SERVER_BASE_URL="https://raw.githubusercontent.com/spiritLHLS/speedtest.net-CN-ID/main"
 Speedtest_Go_version="1.6.12"
 BrowserUA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36"
 cd /root >/dev/null 2>&1
