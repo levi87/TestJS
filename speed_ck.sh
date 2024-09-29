@@ -10,8 +10,10 @@ else
     echo "Locale set to $utf8_locale"
 fi
 export DEBIAN_FRONTEND=noninteractive
-ecsspeednetver="2023/05/05"
+ecsspeednetver="2024/05/18"
 SERVER_BASE_URL="https://raw.githubusercontent.com/levi87/TestJS/main"
+Speedtest_Go_version="1.6.12"
+BrowserUA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36"
 cd /root >/dev/null 2>&1
 RED="\033[31m"
 GREEN="\033[32m"
@@ -174,13 +176,13 @@ download_speedtest_file() {
         if [ "$sys_bit" = "aarch64" ]; then
             sys_bit="arm64"
         fi
-        local url3="https://github.com/showwin/speedtest-go/releases/download/v1.6.0/speedtest-go_1.6.0_Linux_${sys_bit}.tar.gz"
+        local url3="https://github.com/showwin/speedtest-go/releases/download/v${Speedtest_Go_version}/speedtest-go_${Speedtest_Go_version}_Linux_${sys_bit}.tar.gz"
         curl --fail -sL -m 10 -o speedtest.tar.gz "${url3}" || curl --fail -sL -m 15 -o speedtest.tar.gz "${cdn_success_url}${url3}"
     else
         if [ "$sys_bit" = "aarch64" ]; then
             sys_bit="arm64"
         fi
-        local url3="https://github.com/showwin/speedtest-go/releases/download/v1.6.0/speedtest-go_1.6.0_Linux_${sys_bit}.tar.gz"
+        local url3="https://github.com/showwin/speedtest-go/releases/download/v${Speedtest_Go_version}/speedtest-go_${Speedtest_Go_version}_Linux_${sys_bit}.tar.gz"
         curl -o speedtest.tar.gz "${cdn_success_url}${url3}"
         if [ $? -eq 0 ]; then
             _green "Used unofficial speedtest-go"
@@ -244,9 +246,9 @@ speed_test() {
     local nodeName="$2"
     if [ ! -f "./speedtest-cli/speedtest" ]; then
         if [ -z "$1" ]; then
-            ./speedtest-cli/speedtest-go >./speedtest-cli/speedtest.log 2>&1
+            ./speedtest-cli/speedtest-go --ua="${BrowserUA}" >./speedtest-cli/speedtest.log 2>&1
         else
-            ./speedtest-cli/speedtest-go --server=$1 >./speedtest-cli/speedtest.log 2>&1
+            ./speedtest-cli/speedtest-go --ua="${BrowserUA}" --custom-url=http://"$1"/upload.php >./speedtest-cli/speedtest.log 2>&1
         fi
         if [ $? -eq 0 ]; then
             local dl_speed=$(grep -oP 'Download: \K[\d\.]+' ./speedtest-cli/speedtest.log)
@@ -514,14 +516,15 @@ preinfo() {
 
 selecttest() {
     echo -e "测速类型:"
-    echo -e "\t${GREEN}1.${PLAIN}三网测速(就近节点)\t${GREEN}3.${PLAIN}联通\t\t${GREEN}6.${PLAIN}香港\t\t${GREEN}8.${PLAIN}退出测速"
+    echo -e "\t${GREEN}1.${PLAIN}三网测速(就近节点)\t${GREEN}3.${PLAIN}联通\t\t${GREEN}6.${PLAIN}香港\t\t${GREEN}10.${PLAIN}退出测速"
     echo -e "\t${GREEN}2.${PLAIN}三网测速(所有节点)\t${GREEN}4.${PLAIN}电信\t\t${GREEN}7.${PLAIN}台湾"
-    echo -e "\t\t\t\t${GREEN}5.${PLAIN}移动"
+    echo -e "\t\t\t\t${GREEN}5.${PLAIN}移动\t\t${GREEN}8.${PLAIN}日本"
+    echo -e "\t\t\t\t\t\t${GREEN}9.${PLAIN}新加坡"
     echo "——————————————————————————————————————————————————————————————————————————————"
     while :; do
         echo
         reading "请输入数字选择测速类型: " selection
-        if [[ ! $selection =~ ^[1-8]$ ]]; then
+        if [[ ! $selection =~ ^(10|[1-9])$ ]]; then
             echo -ne "  ${RED}输入错误${PLAIN}, 请输入正确的数字!"
         else
             break
@@ -531,6 +534,18 @@ selecttest() {
 
 runtest() {
     case ${selection} in
+    9)
+        _yellow "checking speedtest servers"
+        slist=($(get_data "${SERVER_BASE_URL}/SG.csv"))
+        temp_head
+        test_list "${slist[@]}"
+        ;;
+    8)
+        _yellow "checking speedtest servers"
+        slist=($(get_data "${SERVER_BASE_URL}/JP.csv"))
+        temp_head
+        test_list "${slist[@]}"
+        ;;
     7)
         _yellow "checking speedtest server ID"
         slist=($(get_data "https://raw.githubusercontent.com/levi87/TestJS/main/TW.csv"))
@@ -602,12 +617,14 @@ checkver() {
 checkerror() {
     end_time=$(date +%s)
     time=$((${end_time} - ${start_time}))
-    if ! grep -qE "(台湾|香港|联通|电信|移动|Hong|Kong|Taiwan|Taipei)" ./speedtest-cli/speedlog.txt; then
-        _yellow "Unable to use the 1.2.0, back to 1.0.0"
-        speedtest_ver="1.0.0"
-        global_exit
-        (install_speedtest >/dev/null 2>&1)
-        runtest
+    if [ -f ./speedtest-cli/speedlog.txt ]; then
+        if ! grep -qE "(新加坡|日本|台湾|香港|联通|电信|移动|Hong|Kong|Taiwan|Taipei)" ./speedtest-cli/speedlog.txt; then
+            _yellow "Unable to use the 1.2.0, back to 1.0.0"
+            speedtest_ver="1.0.0"
+            global_exit
+            (install_speedtest >/dev/null 2>&1)
+            runtest
+        fi
     fi
 }
 
