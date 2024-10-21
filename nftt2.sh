@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.0.7'
+VER='1.0.8'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -3613,25 +3613,13 @@ function MediaUnlockTest_musicjp() {
 }
 
 function MediaUnlockTest_InstagramMusic() {
-    local tmpresult=$(curl ${CURL_DEFAULT_OPTS} -s 'https://www.instagram.com/graphql/query'   -H 'accept: */*'   -H 'accept-language: zh-CN,zh;q=0.9'   -H 'content-type: application/x-www-form-urlencoded'   -H 'cookie: csrftoken=5yAz8ldhE9gPDGQYCkH_eW; dpr=1.25; mid=Zu7wAwALAAFavLQ3DfGF9pSGMYgD; datr=AvDuZtk6iZABRxkysXH52knl; ig_did=6116C6E2-5573-4930-976B-2676691B0762; ig_nrcb=1; wd=1439x1012'   -H 'origin: https://www.instagram.com'   -H 'priority: u=1, i'   -H 'referer: https://www.instagram.com/p/DAGdRmhyNfS/'   -H 'sec-ch-prefers-color-scheme: light'   -H 'sec-ch-ua: "Chromium";v="128", "Not;A=Brand";v="24", "Microsoft Edge";v="128"'   -H 'sec-ch-ua-full-version-list: "Chromium";v="128.0.6613.138", "Not;A=Brand";v="24.0.0.0", "Microsoft Edge";v="128.0.2739.79"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-model: ""'   -H 'sec-ch-ua-platform: "Windows"'   -H 'sec-ch-ua-platform-version: "10.0.0"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0'   -H 'x-asbd-id: 129477'   -H 'x-bloks-version-id: 45949a58ec060709d5054d638e57729a553188c614b175e79022df638c465743'   -H 'x-csrftoken: 5yAz8ldhE9gPDGQYCkH_eW'   -H 'x-fb-friendly-name: PolarisPostActionLoadPostQueryQuery'   -H 'x-fb-lsd: AVq8jkbGQwU'   -H 'x-ig-app-id: 936619743392459'   --data-raw 'av=0&__d=www&__user=0&__a=1&__req=6&__hs=19987.HYP%3Ainstagram_web_pkg.2.1..0.0&dpr=1&__ccg=UNKNOWN&__rev=1016696497&__s=3e1gm7%3Aljsieg%3A2eka8r&__hsi=7417131319483986165&__dyn=7xeUjG1mxu1syUbFp41twpUnwgU7SbzEdF8aUco2qwJw5ux609vCwjE1xoswaq0yE462mcw5Mx62G5UswoEcE7O2l0Fwqo31w9O1TwQzXwae4UaEW2G0AEco5G0zK5o4q0HUvw5rwSyES1TwVwDwHg2ZwrUdUbGwmk0zU8oC1Iwqo5q3e3zhA6bwIxe6V89F8uwm9EO2e2e1ewto&__csr=g8QaislRiiGAjrh_TmyDuKlDK99XBBAhrgOVKUC8a48gS8CZqDgCmUHCWojKWF8yjglBy9aHBy8GFV4uXhAEyeBWgyu78B1h4BDKaJ4gGFGmu6ojzLAyvDxzGngS8zEnxqdw04Szw3NGwxG2-2ufHa1SwpocE31gapJw0IvoV1S3UzDgCQ1Ca3alk19hA9BgdVa6w6VBzjpRNM2Zw9C5cwdb9e3i2O2C6o2xxK2N0rE31g4NADk80392Gt2pk1ewoU07Ni0aCw1F2&__comet_req=7&lsd=AVq8jkbGQwU&jazoest=2987&__spin_r=1016696497&__spin_b=trunk&__spin_t=1726935459&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=PolarisPostActionLoadPostQueryQuery&variables=%7B%22shortcode%22%3A%22DAGdRmhyNfS%22%2C%22parent_comment_count%22%3A24%2C%22child_comment_count%22%3A3%2C%22fetch_like_count%22%3A10%2C%22fetch_tagged_user_count%22%3Anull%2C%22fetch_preview_comment_count%22%3A2%2C%22hoisted_comment_id%22%3Anull%2C%22hoisted_reply_id%22%3Anull%7D&server_timestamps=true&doc_id=23866501239623009')
-    if [ -z "$tmpresult" ]; then
-        echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
-        return
-    fi
-
-    local isBlocked=$(echo "$tmpresult" | grep -i 'Rate limit exceeded')
-    if [ -n "$isBlocked" ]; then
-        echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}No${Font_Suffix}\n"
-        return
-    fi
-
-    local result=$(echo "$tmpresult" | grep -woP '"should_mute_audio"\s{0,}:\s{0,}\K(false|true)')
+    local result=$(curl ${CURL_DEFAULT_OPTS} -s -w '%{http_code}' -o /dev/null 'https://www.instagram.com/api/v1/clips/music/'   -H 'accept: */*'   -H 'accept-language: zh-CN,zh;q=0.9'   -H 'content-type: application/x-www-form-urlencoded'   -H 'cookie: csrftoken=O6tapkfyaFajJmHKyz-U26; dpr=1.25; ig_did=26A4F4FD-11C6-4AD2-8327-52F3190CE4FB; ig_nrcb=1; wd=1439x994; mid=ZwvcbAALAAEuc9krkqnJx_uGZGpr; datr=a9wLZw4dpN7wo2bPupSbT6eW'   -H 'origin: https://www.instagram.com'   -H 'priority: u=1, i'   -H 'referer: https://www.instagram.com/reels/audio/916215732724084/'   -H 'sec-ch-prefers-color-scheme: light'   -H 'sec-ch-ua: "Microsoft Edge";v="129", "Not=A?Brand";v="8", "Chromium";v="129"'   -H 'sec-ch-ua-full-version-list: "Microsoft Edge";v="129.0.2792.79", "Not=A?Brand";v="8.0.0.0", "Chromium";v="129.0.6668.90"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-model: ""'   -H 'sec-ch-ua-platform: "Windows"'   -H 'sec-ch-ua-platform-version: "15.0.0"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0'   -H 'x-asbd-id: 129477'   -H 'x-csrftoken: O6tapkfyaFajJmHKyz-U26'   -H 'x-ig-app-id: 936619743392459'   -H 'x-ig-www-claim: 0'   -H 'x-instagram-ajax: 1017305577'   -H 'x-requested-with: XMLHttpRequest'   --data-raw 'audio_cluster_id=916215732724084&original_sound_audio_asset_id=916215732724084')
 
     case "$result" in
-        'false') echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Green}Yes${Font_Suffix}\n" ;;
-        'true') echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}No${Font_Suffix}\n" ;;
-        '') echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}Failed (Error: PAGE ERROR)${Font_Suffix}\n" ;;
-        *) echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}Failed (Error: ${result})${Font_Suffix}\n" ;;
+        '200') echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Green}Yes${Font_Suffix}\n" ;;
+        '401') echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}No${Font_Suffix}\n" ;;
+        '000') echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}Failed (NETWORK ERROR)${Font_Suffix}\n" ;;
+        *) echo -n -e "\r Instagram Licensed Audio:\t\t${Font_Red}Failed (NETWORK ERROR)${Font_Suffix}\n" ;;
     esac
 }
 
