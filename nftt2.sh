@@ -994,6 +994,12 @@ function MediaUnlockTest_Netflix() {
 }
 
 function MediaUnlockTest_DisneyPlus() {
+    #===========检测DNS解锁============
+    local checkunlockurl="disneyplus.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #===========检测DNS解锁============
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r Disney+:\t\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -1044,7 +1050,7 @@ function MediaUnlockTest_DisneyPlus() {
         return
     fi
     if [ "$region" == 'JP' ]; then
-        echo -n -e "\r Disney+:\t\t\t\t${Font_Green}Yes (Region: JP)${Font_Suffix}\n"
+        echo -n -e "\r Disney+:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: JP)${Font_Suffix}\n"
         return
     fi
     if [ -n "$isUnavailable" ]; then
@@ -1056,7 +1062,7 @@ function MediaUnlockTest_DisneyPlus() {
         return
     fi
     if [ "$inSupportedLocation" == 'true' ]; then
-        echo -n -e "\r Disney+:\t\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r Disney+:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
@@ -1838,6 +1844,12 @@ function MediaUnlockTest_FOD() {
 }
 
 function MediaUnlockTest_YouTube_Premium() {
+    #=============检测DNS解锁==============
+    local checkunlockurl="www.youtube.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #=============检测DNS解锁==============
     local tmpresult=$(curl ${CURL_DEFAULT_OPTS} -sL 'https://www.youtube.com/premium' -H 'accept-language: en-US,en;q=0.9' -H 'cookie: YSC=FSCWhKo2Zgw; VISITOR_PRIVACY_METADATA=CgJERRIEEgAgYQ%3D%3D; PREF=f7=4000; __Secure-YEC=CgtRWTBGTFExeV9Iayjele2yBjIKCgJERRIEEgAgYQ%3D%3D; SOCS=CAISOAgDEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjQwNTI2LjAxX3AwGgV6aC1DTiACGgYIgMnpsgY; VISITOR_INFO1_LIVE=Di84mAIbgKY; __Secure-BUCKET=CGQ' --user-agent "${UA_BROWSER}")
     if [ -z "$tmpresult" ]; then
         echo -n -e "\r YouTube Premium:\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
@@ -1863,7 +1875,7 @@ function MediaUnlockTest_YouTube_Premium() {
         local region='UNKNOWN'
     fi
     if [ -n "$isAvailable" ]; then
-        echo -n -e "\r YouTube Premium:\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r YouTube Premium:\t\t${resultunlocktype}${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
