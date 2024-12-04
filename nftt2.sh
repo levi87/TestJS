@@ -1,11 +1,10 @@
 #!/bin/bash
 
-VER='1.1.5'
+VER='1.1.6'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
 UA_ANDROID="Mozilla/5.0 (Linux; Android 10; Pixel 4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36"
-IS_DNS_CHECK = true
 
 color_print() {
     Font_Black="\033[30m"
@@ -606,7 +605,7 @@ function Check_DNS_IP()
 
 function Check_DNS_1()
 {
-    if [ "$IS_DNS_CHECK" == false]; then
+    if [ "$digExists" == 0 ]; then
     	echo 0
     	return
     fi
@@ -625,7 +624,7 @@ function Check_DNS_1()
 
 function Check_DNS_2()
 {
-    if [ "$IS_DNS_CHECK" == false]; then
+    if [ "$digExists" == 0 ]; then
     	echo 0
     	return
     fi
@@ -641,7 +640,7 @@ function Check_DNS_2()
 
 function Check_DNS_3()
 {
-    if [ "$IS_DNS_CHECK" == false]; then
+    if [ "$digExists" == 0 ]; then
     	echo 0
     	return
     fi
@@ -658,7 +657,7 @@ function Check_DNS_3()
 
 function Get_Unlock_Type()
 {
-    if [ "$IS_DNS_CHECK" == false]; then
+    if [ "$digExists" == 0 ]; then
     	echo "\t"
     	return
     fi
