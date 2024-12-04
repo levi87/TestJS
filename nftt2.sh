@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.1.9'
+VER='1.2.0'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -337,10 +337,6 @@ check_dependencies() {
     if ! command_exists openssl; then
         echo -e "${Font_Red}command 'openssl' is missing, please install it first.${Font_Suffix}"
         exit 1
-    fi
-
-    if ! command_exists dig; then
-        echo -e "${Font_Red}dnsutils is missing, please install it first or you will NO DNS Unlock Check.${Font_Suffix}"
     fi
 
     if [ "$OS_MACOS" == 1 ]; then
@@ -5722,6 +5718,7 @@ function inputOptions() {
     while :; do
         if [ "$LANGUAGE" == 'en' ]; then
             echo -e "${Font_Blue}Please Select Test Region or Press ENTER to Test All Regions${Font_Suffix}"
+	    echo -e "${Font_Yellow}DNS Unlock Check Need dnsutils (apt install dnsutils)${Font_Suffix}"
             echo -e "${Font_SkyBlue}Input Number  [1]: [ Multination + Taiwan ]${Font_Suffix}"
             echo -e "${Font_SkyBlue}Input Number  [2]: [ Multination + Hong Kong ]${Font_Suffix}"
             echo -e "${Font_SkyBlue}Input Number  [3]: [ Multination + Japan ]${Font_Suffix}"
@@ -5739,6 +5736,7 @@ function inputOptions() {
             read -p "Please Input the Correct Number or Press ENTER:" num
         else
             echo -e "${Font_Blue}请选择检测项目，直接按回车将进行全区域检测${Font_Suffix}"
+	    echo -e "${Font_Yellow}DNS解锁检测需要安装 dnsutils (apt install dnsutils)${Font_Suffix}"
             echo -e "${Font_SkyBlue}输入数字  [1]: [ 跨国平台+台湾平台 ]检测${Font_Suffix}"
             echo -e "${Font_SkyBlue}输入数字  [2]: [ 跨国平台+香港平台 ]检测${Font_Suffix}"
             echo -e "${Font_SkyBlue}输入数字  [3]: [ 跨国平台+日本平台 ]检测${Font_Suffix}"
