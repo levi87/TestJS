@@ -1,10 +1,11 @@
 #!/bin/bash
 
-VER='1.1.3'
+VER='1.1.5'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
 UA_ANDROID="Mozilla/5.0 (Linux; Android 10; Pixel 4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36"
+IS_DNS_CHECK = true
 
 color_print() {
     Font_Black="\033[30m"
@@ -339,6 +340,11 @@ check_dependencies() {
         exit 1
     fi
 
+    if ! command_exists dig; then
+        echo -e "${Font_Red}command 'dig' is missing, please install it first.${Font_Suffix}"
+        IS_DNS_CHECK = false
+    fi
+
     if [ "$OS_MACOS" == 1 ]; then
         if ! command_exists md5sum; then
             echo -e "${Font_Red}command 'md5sum' is missing, please install it first.${Font_Suffix}"
@@ -600,6 +606,10 @@ function Check_DNS_IP()
 
 function Check_DNS_1()
 {
+    if [ "$IS_DNS_CHECK" == false]; then
+    	echo 0
+    	return
+    fi
     local resultdns=$(nslookup $1)
     local resultinlines=(${resultdns//$'\n'/ })
     for i in ${resultinlines[*]}
@@ -615,6 +625,10 @@ function Check_DNS_1()
 
 function Check_DNS_2()
 {
+    if [ "$IS_DNS_CHECK" == false]; then
+    	echo 0
+    	return
+    fi
     local resultdnstext=$(dig $1 | grep "ANSWER:")
     local resultdnstext=${resultdnstext#*"ANSWER: "}
     local resultdnstext=${resultdnstext%", AUTHORITY:"*}
@@ -627,6 +641,10 @@ function Check_DNS_2()
 
 function Check_DNS_3()
 {
+    if [ "$IS_DNS_CHECK" == false]; then
+    	echo 0
+    	return
+    fi
     local resultdnstext=$(dig "test$RANDOM$RANDOM.${1}" | grep "ANSWER:")
     echo "test$RANDOM$RANDOM.${1}"
     local resultdnstext=${resultdnstext#*"ANSWER: "}
@@ -640,6 +658,10 @@ function Check_DNS_3()
 
 function Get_Unlock_Type()
 {
+    if [ "$IS_DNS_CHECK" == false]; then
+    	echo "\t"
+    	return
+    fi
     if [[ "$language" == "e" ]]; then
 		    while [ $# -ne 0 ]
 		    do
