@@ -341,7 +341,7 @@ check_dependencies() {
     fi
 
     if ! command_exists dig; then
-        echo -e "${Font_Red}command 'dig' is missing, please install it first.${Font_Suffix}"
+        echo -e "${Font_Red}dnsutils is missing, please install it first or you will NO DNS Unlock Check.${Font_Suffix}"
         IS_DNS_CHECK = false
     fi
 
