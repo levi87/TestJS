@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.1.1'
+VER='1.1.2'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -708,6 +708,13 @@ function GameTest_Steam() {
 
 # 流媒体解锁测试-动画疯
 function MediaUnlockTest_BahamutAnime() {
+    #===========DNS解锁检测===================
+    local checkunlockurl="gamer.com.tw"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #===========DNS解锁检测===================
+    
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r Bahamut Anime:\t\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -740,7 +747,7 @@ function MediaUnlockTest_BahamutAnime() {
 
     local region=$(echo "$tmpresult2" | grep -woP 'data-geo="\K[^"]+')
     if [ -n "$region" ]; then
-        echo -n -e "\r Bahamut Anime:\t\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r Bahamut Anime:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
@@ -1131,6 +1138,12 @@ function MediaUnlockTest_HuluJP() {
 }
 
 function MediaUnlockTest_MyTVSuper() {
+    #===================DNS解锁检测===================
+    local checkunlockurl="mytvsuper.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #===================DNS解锁检测===================
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r MyTVSuper:\t\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -1144,7 +1157,7 @@ function MediaUnlockTest_MyTVSuper() {
 
     local result=$(echo "$tmpresult" | grep -woP '"country_code"\s{0,}:\s{0,}"\K[^"]+')
     if [ "$result" == 'HK' ]; then
-        echo -n -e "\r MyTVSuper:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n"
+        echo -n -e "\r MyTVSuper:\t\t${resultunlocktype}\t${Font_Green}Yes${Font_Suffix}\n"
         return
     else
         echo -n -e "\r MyTVSuper:\t\t\t\t${Font_Red}No${Font_Suffix}\n"
@@ -1378,6 +1391,12 @@ function MediaUnlockTest_HamiVideo() {
 }
 
 function MediaUnlockTest_4GTV() {
+    #================DNS解锁检测===============
+    local checkunlockurl="4gtv.tv"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #================DNS解锁检测===============
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r 4GTV.TV:\t\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -1392,7 +1411,7 @@ function MediaUnlockTest_4GTV() {
     result=$(echo "$tmpresult" | grep -woP '"Data"\s{0,}:\s{0,}"\K[^"]+')
     case "$result" in
         'N') echo -n -e "\r 4GTV.TV:\t\t\t\t${Font_Red}No${Font_Suffix}\n" ;;
-        'Y') echo -n -e "\r 4GTV.TV:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n" ;;
+        'Y') echo -n -e "\r 4GTV.TV:\t\t${resultunlocktype}\t${Font_Green}Yes${Font_Suffix}\n" ;;
         *) echo -n -e "\r 4GTV.TV:\t\t\t\t${Font_Red}Failed (Error: ${result})${Font_Suffix}\n" ;;
     esac
 }
@@ -1558,6 +1577,12 @@ function MediaUnlockTest_DSTV() {
 }
 
 function RegionTest_iQYI() {
+    #================DNS解锁检测==================
+    local checkunlockurl="www.iq.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #================DNS解锁检测==================
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r iQyi Oversea Region:\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -1581,7 +1606,7 @@ function RegionTest_iQYI() {
         region='TW'
     fi
 
-    echo -n -e "\r iQyi Oversea Region:\t\t\t${Font_Green}${region}${Font_Suffix}\n"
+    echo -n -e "\r iQyi Oversea Region:\t${resultunlocktype}\t${Font_Green}${region}${Font_Suffix}\n"
 }
 
 function MediaUnlockTest_HuluUS() {
@@ -1674,6 +1699,12 @@ function MediaUnlockTest_LineTVTW() {
 }
 
 function MediaUnlockTest_ViuCom() {
+    #==================DNS解锁检测=================
+    local checkunlockurl="www.viu.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #==================DNS解锁检测=================
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r Viu.com:\t\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -1697,7 +1728,7 @@ function MediaUnlockTest_ViuCom() {
         return
     fi
     if [ "$httpCode" == '200' ]; then
-        echo -n -e "\r Viu.com:\t\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r Viu.com:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
@@ -2146,6 +2177,13 @@ function MediaUnlockTest_Catchplay() {
 }
 
 function MediaUnlockTest_HotStar() {
+    #=============DNS解锁检测=============
+    local checkunlockurl="api.hotstar.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result2=`Check_DNS_2 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result2} ${result3}`
+    #=============DNS解锁检测=============
     local tmpresult=$(curl ${CURL_DEFAULT_OPTS} -sLi 'https://www.hotstar.com' -w '\n_TAG_%{http_code}_TAG_%{url_effective}_TAG_\n' --user-agent "${UA_BROWSER}")
 
     local httpCode=$(echo "$tmpresult" | grep -o '_TAG_.*_TAG_' | awk -F'_TAG_' '{print $2}')
@@ -2176,7 +2214,7 @@ function MediaUnlockTest_HotStar() {
         return
     fi
     if  [ "$region" == "$siteRegion" ]; then
-        echo -n -e "\r HotStar:\t\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r HotStar:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
@@ -2809,6 +2847,13 @@ function MediaUnlockTest_RaiPlay() {
 }
 
 function MediaUnlockTest_TVBAnywhere() {
+    #===============DNS解锁检测=================
+    local checkunlockurl="uapisfm.tvbanywhere.com.sg"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result2=`Check_DNS_2 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result2} ${result3}`
+    #===============DNS解锁检测=================
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r TVBAnywhere+:\t\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -2827,7 +2872,7 @@ function MediaUnlockTest_TVBAnywhere() {
     fi
 
     case "$result" in
-        'true') echo -n -e "\r TVBAnywhere+:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n" ;;
+        'true') echo -n -e "\r TVBAnywhere+:\t\t${resultunlocktype}\t${Font_Green}Yes${Font_Suffix}\n" ;;
         'false') echo -n -e "\r TVBAnywhere+:\t\t\t\t${Font_Red}No${Font_Suffix}\n" ;;
         *) echo -n -e "\r TVBAnywhere+:\t\t\t\t${Font_Red}Failed (Error: Unknown)${Font_Suffix}\n" ;;
     esac
@@ -3720,6 +3765,12 @@ function MediaUnlockTest_Channel10() {
 }
 
 function MediaUnlockTest_Spotify() {
+    #=============DNS解锁检测=============
+    local checkunlockurl="spclient.wg.spotify.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #=============DNS解锁检测=============
     local tmpresult=$(curl ${CURL_DEFAULT_OPTS} -s 'https://spclient.wg.spotify.com/signup/public/v1/account' -d "birth_day=11&birth_month=11&birth_year=2000&collect_personal_info=undefined&creation_flow=&creation_point=https%3A%2F%2Fwww.spotify.com%2Fhk-en%2F&displayname=Gay%20Lord&gender=male&iagree=1&key=a1e486e2729f46d6bb368d6b2bcda326&platform=www&referrer=&send-email=0&thirdpartyemail=0&identifier_token=AgE6YTvEzkReHNfJpO114514" -X POST -H "Accept-Language: en" --user-agent "${UA_BROWSER}")
     if [ -z "$tmpresult" ]; then
         echo -n -e "\r Spotify Registration:\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
@@ -3747,7 +3798,7 @@ function MediaUnlockTest_Spotify() {
         return
     fi
     if [ "$statusCode" == '311' ]; then
-        echo -n -e "\r Spotify Registration:\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r Spotify Registration:\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
