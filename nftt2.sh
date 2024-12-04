@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.1.0'
+VER='1.1.1'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -1070,6 +1070,13 @@ function MediaUnlockTest_DisneyPlus() {
 }
 
 function MediaUnlockTest_Dazn() {
+    #===========DNS解锁检测===============
+    local checkunlockurl="startup.core.indazn.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result2=`Check_DNS_2 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result2} ${result3}`
+    #===========DNS解锁检测===============
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r Dazn:\t\t\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -1085,7 +1092,7 @@ function MediaUnlockTest_Dazn() {
     local region=$(echo "$tmpresult" | grep -woP '"GeolocatedCountry"\s{0,}:\s{0,}"\K[^"]+' | tr a-z A-Z)
     case "$result" in
         'false') echo -n -e "\r Dazn:\t\t\t\t\t${Font_Red}No${Font_Suffix}\n" ;;
-        'true') echo -n -e "\r Dazn:\t\t\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n" ;;
+        'true') echo -n -e "\r Dazn:\t\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n" ;;
         *) echo -n -e "\r Dazn:\t\t\t\t\t${Font_Red}Failed (Error: ${result})${Font_Suffix}\n" ;;
     esac
 }
@@ -1875,7 +1882,7 @@ function MediaUnlockTest_YouTube_Premium() {
         local region='UNKNOWN'
     fi
     if [ -n "$isAvailable" ]; then
-        echo -n -e "\r YouTube Premium:\t\t${resultunlocktype}${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r YouTube Premium:\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
@@ -1983,6 +1990,12 @@ function MediaUnlockTest_BritBox() {
 }
 
 function MediaUnlockTest_PrimeVideo() {
+    #===========DNS解锁检测===============
+    local checkunlockurl="www.primevideo.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #===========DNS解锁检测===============
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r Amazon Prime Video:\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
         return
@@ -2006,7 +2019,7 @@ function MediaUnlockTest_PrimeVideo() {
         return
     fi
     if [ -n "$region" ]; then
-        echo -n -e "\r Amazon Prime Video:\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r Amazon Prime Video:\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
@@ -4637,6 +4650,20 @@ function MediaUnlockTest_AISPlay() {
 }
 
 function WebTest_OpenAI() {
+    #==========DNS解锁检测==============
+    local checkunlockurl="chat.openai.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result2=`Check_DNS_2 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local checkunlockurl="ios.chat.openai.com"
+    local result4=`Check_DNS_1 ${checkunlockurl}`
+    local result5=`Check_DNS_2 ${checkunlockurl}`
+    local result6=`Check_DNS_3 ${checkunlockurl}`
+    local checkunlockurl="api.openai.com"
+    local result7=`Check_DNS_1 ${checkunlockurl}`
+    local result8=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result2} ${result3} ${result4} ${result5} ${result6} ${result7} ${result8}`
+    #==========DNS解锁检测==============
     local tmpresult1=$(curl ${CURL_DEFAULT_OPTS} -s 'https://api.openai.com/compliance/cookie_requirements' -H 'authority: api.openai.com' -H 'accept: */*' -H 'accept-language: en-US,en;q=0.9' -H 'authorization: Bearer null' -H 'content-type: application/json' -H 'origin: https://platform.openai.com' -H 'referer: https://platform.openai.com/' -H "sec-ch-ua: ${UA_SEC_CH_UA}" -H 'sec-ch-ua-mobile: ?0' -H 'sec-ch-ua-platform: "Windows"' -H 'sec-fetch-dest: empty' -H 'sec-fetch-mode: cors' -H 'sec-fetch-site: same-site' --user-agent "${UA_BROWSER}")
     local tmpresult2=$(curl ${CURL_DEFAULT_OPTS} -s 'https://ios.chat.openai.com/' -H 'authority: ios.chat.openai.com' -H 'accept: */*;q=0.8,application/signed-exchange;v=b3;q=0.7' -H 'accept-language: en-US,en;q=0.9' -H "sec-ch-ua: ${UA_SEC_CH_UA}" -H 'sec-ch-ua-mobile: ?0' -H 'sec-ch-ua-platform: "Windows"' -H 'sec-fetch-dest: document' -H 'sec-fetch-mode: navigate' -H 'sec-fetch-site: none' -H 'sec-fetch-user: ?1' -H 'upgrade-insecure-requests: 1' --user-agent "${UA_BROWSER}")
     if [ -z "$tmpresult1" ]; then
@@ -4651,7 +4678,7 @@ function WebTest_OpenAI() {
     local result1=$(echo "$tmpresult1" | grep -i 'unsupported_country')
     local result2=$(echo "$tmpresult2" | grep -i 'VPN')
     if [ -z "$result2" ] && [ -z "$result1" ]; then
-        echo -n -e "\r ChatGPT:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n"
+        echo -n -e "\r ChatGPT:\t\t${resultunlocktype}\t${Font_Green}Yes${Font_Suffix}\n"
         return
     fi
     if [ -n "$result2" ] && [ -n "$result1" ]; then
@@ -4671,6 +4698,12 @@ function WebTest_OpenAI() {
 }
 
 function WebTest_Gemini() {
+    #==========DNS解锁检测==============
+    local checkunlockurl="gemini.google.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+    #==========DNS解锁检测==============
     local tmpresult=$(curl ${CURL_DEFAULT_OPTS} -sL "https://gemini.google.com" --user-agent "${UA_BROWSER}")
     if [[ "$tmpresult" = "curl"* ]]; then
         echo -n -e "\r Google Gemini:\t\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
@@ -4679,10 +4712,10 @@ function WebTest_Gemini() {
     result=$(echo "$tmpresult" | grep -q '45631641,null,true' && echo "Yes" || echo "")
     countrycode=$(echo "$tmpresult" | grep -o ',2,1,200,"[A-Z]\{3\}"' | sed 's/,2,1,200,"//;s/"//' || echo "")
     if [ -n "$result" ] && [ -n "$countrycode" ]; then
-        echo -n -e "\r Google Gemini:\t\t\t\t${Font_Green}Yes (Region: $countrycode)${Font_Suffix}\n"
+        echo -n -e "\r Google Gemini:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: $countrycode)${Font_Suffix}\n"
         return
     elif [ -n "$result" ]; then
-        echo -n -e "\r Google Gemini:\t\t\t\t${Font_Green}Yes${Font_Suffix}\n"
+        echo -n -e "\r Google Gemini:\t\t${resultunlocktype}\t${Font_Green}Yes${Font_Suffix}\n"
         return
     else
         echo -n -e "\r Google Gemini:\t\t\t\t${Font_Red}No${Font_Suffix}\n"
