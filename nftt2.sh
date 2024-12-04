@@ -511,6 +511,161 @@ show_region() {
     echo -e "${Font_Yellow} ---${1}---${Font_Suffix}"
 }
 
+#=============检测DNS解锁============
+function calc_ip_net()
+{
+   sip="$1"
+   snetmask="$2"
+ 
+   check_ip_valide "$sip"
+   if [ $? -ne 0 ];then echo "";return 1;fi
+ 
+   local ipFIELD1=$(echo "$sip" |cut -d. -f1)
+   local ipFIELD2=$(echo "$sip" |cut -d. -f2)
+   local ipFIELD3=$(echo "$sip" |cut -d. -f3)
+   local ipFIELD4=$(echo "$sip" |cut -d. -f4)
+         
+   local netmaskFIELD1=$(echo "$snetmask" |cut -d. -f1)
+   local netmaskFIELD2=$(echo "$snetmask" |cut -d. -f2)
+   local netmaskFIELD3=$(echo "$snetmask" |cut -d. -f3)
+   local netmaskFIELD4=$(echo "$snetmask" |cut -d. -f4)
+ 
+   local tmpret1=$[$ipFIELD1&$netmaskFIELD1]
+   local tmpret2=$[$ipFIELD2&$netmaskFIELD2]
+   local tmpret3=$[$ipFIELD3&$netmaskFIELD3]
+   local tmpret4=$[$ipFIELD4&$netmaskFIELD4]
+    
+   echo "$tmpret1.$tmpret2.$tmpret3.$tmpret4"
+}   
+
+function Check_DNS_IP()
+{
+    if [ "$1" != "${1#*[0-9].[0-9]}" ]; then
+        if [ "$(calc_ip_net "$1" 255.0.0.0)" == "10.0.0.0" ];then
+            echo 0
+        elif [ "$(calc_ip_net "$1" 255.240.0.0)" == "172.16.0.0" ];then
+            echo 0
+        elif [ "$(calc_ip_net "$1" 255.255.0.0)" == "169.254.0.0" ];then
+            echo 0
+        elif [ "$(calc_ip_net "$1" 255.255.0.0)" == "192.168.0.0" ];then
+            echo 0
+        elif [ "$(calc_ip_net "$1" 255.255.255.0)" == "$(calc_ip_net "$2" 255.255.255.0)" ];then
+            echo 0
+        else
+            echo 1
+        fi
+    elif [ "$1" != "${1#*[0-9a-fA-F]:*}" ]; then
+        if [ "${1:0:3}" == "fe8" ];then
+            echo 0
+        elif [ "${1:0:3}" == "FE8" ];then
+            echo 0
+        elif [ "${1:0:2}" == "fc" ];then
+            echo 0
+        elif [ "${1:0:2}" == "FC" ];then
+            echo 0
+        elif [ "${1:0:2}" == "fd" ];then
+            echo 0
+        elif [ "${1:0:2}" == "FD" ];then
+            echo 0
+        elif [ "${1:0:2}" == "ff" ];then
+            echo 0
+        elif [ "${1:0:2}" == "FF" ];then
+            echo 0
+        else
+            echo 1
+        fi
+    else
+        echo 0
+    fi
+}
+
+function Check_DNS_1()
+{
+    local resultdns=$(nslookup $1)
+    local resultinlines=(${resultdns//$'\n'/ })
+    for i in ${resultinlines[*]}
+    do
+        if [[ "$i" == "Name:" ]]; then
+            local resultdnsindex=$(( $resultindex + 3 ))
+            break
+        fi
+        local resultindex=$(( $resultindex + 1 ))
+    done
+    echo `Check_DNS_IP ${resultinlines[$resultdnsindex]} ${resultinlines[1]}`
+}
+
+function Check_DNS_2()
+{
+    local resultdnstext=$(dig $1 | grep "ANSWER:")
+    local resultdnstext=${resultdnstext#*"ANSWER: "}
+    local resultdnstext=${resultdnstext%", AUTHORITY:"*}
+    if [ "${resultdnstext}" == "0" ] || [ "${resultdnstext}" == "1" ] || [ "${resultdnstext}" == "2" ];then
+        echo 0
+    else
+        echo 1
+    fi
+}
+
+function Check_DNS_3()
+{
+    local resultdnstext=$(dig "test$RANDOM$RANDOM.${1}" | grep "ANSWER:")
+    echo "test$RANDOM$RANDOM.${1}"
+    local resultdnstext=${resultdnstext#*"ANSWER: "}
+    local resultdnstext=${resultdnstext%", AUTHORITY:"*}
+    if [ "${resultdnstext}" == "0" ];then
+        echo 1
+    else
+        echo 0
+    fi
+}
+
+function Get_Unlock_Type()
+{
+    if [[ "$language" == "e" ]]; then
+		    while [ $# -ne 0 ]
+		    do
+		#        if [ "$1" = "3" ];then
+		#            local resultwarp=`ip addr | grep "warp:" | awk '{print $2}'`
+		#            if [ "${resultwarp}" == "warp:" ];then
+		#                echo "${Font_Yellow}Proxy${Font_Suffix}"
+		#                return
+		#            fi
+		#        elif [ "$1" = "2" ];then
+		#            echo "${Font_Yellow}Via Proxy${Font_Suffix}"
+		#            return
+		#        elif [ "$1" = "0" ];then
+		        if [ "$1" = "0" ];then
+		            echo "${Font_Yellow}Via DNS\t${Font_Suffix}"
+		            return
+		        fi
+		        shift
+		    done
+		    echo "${Font_Green}Native\t${Font_Suffix}"
+    else
+		    while [ $# -ne 0 ]
+		    do
+		#        if [ "$1" = "3" ];then
+		#            local resultwarp=`ip addr | grep "warp:" | awk '{print $2}'`
+		#            if [ "${resultwarp}" == "warp:" ];then
+		#                echo "${Font_Yellow}代理解锁${Font_Suffix}"
+		#                return
+		#            fi
+		#        elif [ "$1" = "2" ];then
+		#            echo "${Font_Yellow}代理解锁${Font_Suffix}"
+		#            return
+		#        elif [ "$1" = "0" ];then
+		        if [ "$1" = "0" ];then
+		            echo "${Font_Yellow}DNS 解锁${Font_Suffix}"
+		            return
+		        fi
+		        shift
+		    done
+		    echo "${Font_Green}原生解锁${Font_Suffix}"
+		fi
+}
+#=============检测DNS解锁============
+
+
 function GameTest_Steam() {
     if [ "${USE_IPV6}" == 1 ]; then
         echo -n -e "\r Steam Currency:\t\t\t${Font_Red}IPv6 Is Not Currently Supported${Font_Suffix}\n"
@@ -785,6 +940,13 @@ function MediaUnlockTest_BBCiPLAYER() {
 }
 
 function MediaUnlockTest_Netflix() {
+    #======检测DNS解锁=======
+    local checkunlockurl="netflix.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result2=`Check_DNS_2 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result2} ${result3}`
+    #======检测DNS解锁=======
     # LEGO Ninjago
     local result1=$(curl ${CURL_DEFAULT_OPTS} -fsL 'https://www.netflix.com/title/81280792' -w %{http_code} -o /dev/null -H 'host: www.netflix.com' -H 'accept-language: en-US,en;q=0.9' -H "sec-ch-ua: ${UA_SEC_CH_UA}" -H 'sec-ch-ua-mobile: ?0' -H 'sec-ch-ua-platform: "Windows"' -H 'sec-fetch-site: none' -H 'sec-fetch-mode: navigate' -H 'sec-fetch-user: ?1' -H 'sec-fetch-dest: document' --user-agent "${UA_BROWSER}")
     # Breaking bad
@@ -795,7 +957,7 @@ function MediaUnlockTest_Netflix() {
         return
     fi
     if [ "$result1" == '404' ] && [ "$result2" == '404' ]; then
-        echo -n -e "\r Netflix:\t\t\t\t${Font_Yellow}Originals Only${Font_Suffix}\n"
+        echo -n -e "\r Netflix:\t\t${resultunlocktype}\t${Font_Yellow}Originals Only${Font_Suffix}\n"
         return
     fi
     if [ "$result1" == '403' ] || [ "$result2" == '403' ]; then
@@ -805,7 +967,7 @@ function MediaUnlockTest_Netflix() {
     if [ "$result1" == '200' ] || [ "$result2" == '200' ]; then
         local tmpresult=$(curl ${CURL_DEFAULT_OPTS} -sL 'https://www.netflix.com/' -H 'accept-language: en-US,en;q=0.9' -H "sec-ch-ua: ${UA_SEC_CH_UA}" -H 'sec-ch-ua-mobile: ?0' -H 'sec-ch-ua-platform: "Windows"' -H 'sec-fetch-site: none' -H 'sec-fetch-mode: navigate' -H 'sec-fetch-user: ?1' -H 'sec-fetch-dest: document' --user-agent "${UA_BROWSER}")
         local region=$(echo "$tmpresult" | grep -oP '"id":"\K[^"]+' | grep -E '^[A-Z]{2}$' | head -n 1)
-        echo -n -e "\r Netflix:\t\t\t\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
+        echo -n -e "\r Netflix:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${region})${Font_Suffix}\n"
         return
     fi
 
