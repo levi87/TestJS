@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.0.9'
+VER='1.1.0'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -512,6 +512,25 @@ show_region() {
 }
 
 #=============检测DNS解锁============
+function check_ip_valide()
+{
+    local IPPattern='^(\<([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\>\.){3}\<([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\>$'
+    IP="$1"
+    for special_ip in ${special_ips[@]}
+    do
+         local ret=$(echo $IP | grep ${special_ip})
+         if [ -n "$ret" ];then
+             return 1
+         fi
+    done
+    if [[ "${IP}" =~ ${IPPattern} ]]; then
+        return 0
+    else
+        return 1
+    fi
+ 
+}
+
 function calc_ip_net()
 {
    sip="$1"
