@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.1.7'
+VER='1.1.8'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -604,7 +604,7 @@ function Check_DNS_IP()
 
 function Check_DNS_1()
 {
-    if [ "$digExists" == 0 ]; then
+    if !command_exists dig; then
     	echo 0
     	return
     fi
@@ -623,7 +623,7 @@ function Check_DNS_1()
 
 function Check_DNS_2()
 {
-    if [ "$digExists" == 0 ]; then
+    if !command_exists dig; then
     	echo 0
     	return
     fi
@@ -639,7 +639,7 @@ function Check_DNS_2()
 
 function Check_DNS_3()
 {
-    if [ "$digExists" == 0 ]; then
+    if !command_exists dig; then
     	echo 0
     	return
     fi
@@ -656,7 +656,7 @@ function Check_DNS_3()
 
 function Get_Unlock_Type()
 {
-    if [ "$digExists" == 0 ]; then
+    if !command_exists dig; then
     	echo "\t"
     	return
     fi
