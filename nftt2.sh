@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.1.6'
+VER='1.1.7'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -341,7 +341,6 @@ check_dependencies() {
 
     if ! command_exists dig; then
         echo -e "${Font_Red}dnsutils is missing, please install it first or you will NO DNS Unlock Check.${Font_Suffix}"
-        IS_DNS_CHECK = false
     fi
 
     if [ "$OS_MACOS" == 1 ]; then
