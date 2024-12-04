@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.1.2'
+VER='1.1.3'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -963,6 +963,33 @@ function MediaUnlockTest_BBCiPLAYER() {
     fi
 
     echo -n -e "\r BBC iPLAYER:\t\t\t\t${Font_Red}Failed (Error: Unknown)${Font_Suffix}\n"
+}
+
+function MediaUnlockTest_TikTok() {
+    local checkunlockurl="tiktok.com"
+    local result1=`Check_DNS_1 ${checkunlockurl}`
+    local result3=`Check_DNS_3 ${checkunlockurl}`
+    local resultunlocktype=`Get_Unlock_Type ${resultP} ${result1} ${result3}`
+
+    local Ftmpresult=$(curl $useNIC $usePROXY $xForward --user-agent "${UA_Browser}" -sL -m 10 "https://www.tiktok.com/")
+    if [[ "$Ftmpresult" = "curl"* ]]; then
+        echo -n -e "\r TikTok:\t\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
+        return
+    fi
+    local FRegion=$(echo $Ftmpresult | grep '"region":' | sed 's/.*"region"//' | cut -f2 -d'"')
+    if [ -n "$FRegion" ]; then
+        echo -n -e "\r TikTok:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${FRegion})${Font_Suffix}\n"
+        return
+    fi
+    local STmpresult=$(curl $useNIC $usePROXY $xForward --user-agent "${UA_Browser}" -sL -m 10 -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" -H "Accept-Encoding: gzip" -H "Accept-Language: en" "https://www.tiktok.com" | gunzip 2>/dev/null)
+    local SRegion=$(echo $STmpresult | grep '"region":' | sed 's/.*"region"//' | cut -f2 -d'"')
+    if [ -n "$SRegion" ]; then
+        echo -n -e "\r TikTok:\t\t${resultunlocktype}\t${Font_Yellow}IDC IP (Region: ${SRegion})${Font_Suffix}\n"
+        return
+    else
+        echo -n -e "\r TikTok:\t\t\t\t${Font_Red}Failed${Font_Suffix}\n"
+        return
+    fi
 }
 
 function MediaUnlockTest_Netflix() {
@@ -5189,6 +5216,7 @@ function Global_UnlockTest() {
     echo "============[ Multination ]============"
     local result=$(
         MediaUnlockTest_Dazn &
+	MediaUnlockTest_TikTok &
         MediaUnlockTest_DisneyPlus &
         MediaUnlockTest_Netflix &
         MediaUnlockTest_YouTube_Premium &
@@ -5200,7 +5228,7 @@ function Global_UnlockTest() {
         RegionTest_iQYI &
     )
     wait
-    local array=("Dazn:" "Disney+:" "Netflix:" "YouTube Premium:" "Amazon Prime Video:" "TVBAnywhere+:" "Spotify Registration:" "Instagram Licensed Audio:" "OneTrust Region:" "iQyi Oversea Region:")
+    local array=("Dazn:" "TikTok:" "Disney+:" "Netflix:" "YouTube Premium:" "Amazon Prime Video:" "TVBAnywhere+:" "Spotify Registration:" "Instagram Licensed Audio:" "OneTrust Region:" "iQyi Oversea Region:")
     echo_result ${result} ${array}
     local result=$(
         RegionTest_Bing &
