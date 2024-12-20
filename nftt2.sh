@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER='1.2.0'
+VER='1.2.1'
 
 UA_BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 UA_SEC_CH_UA='"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"'
@@ -4771,24 +4771,26 @@ function WebTest_OpenAI() {
 
     local result1=$(echo "$tmpresult1" | grep -i 'unsupported_country')
     local result2=$(echo "$tmpresult2" | grep -i 'VPN')
-    if [ -z "$result2" ] && [ -z "$result1" ]; then
-        echo -n -e "\r ChatGPT:\t\t${resultunlocktype}\t${Font_Green}Yes${Font_Suffix}\n"
+    local countryCode="$(curl --max-time 10 -sS https://chat.openai.com/cdn-cgi/trace | grep "loc=" | awk -F= '{print $2}')";
+    if [ -z "$result2" ] && [ -z "$result1" ] && [[ "$tmpresult1" != "curl"* ]] && [[ "$tmpresult2" != "curl"* ]]; then
+        echo -n -e "\r ChatGPT:\t\t${resultunlocktype}\t${Font_Green}Yes (Region: ${countryCode})${Font_Suffix}\n"
         return
-    fi
-    if [ -n "$result2" ] && [ -n "$result1" ]; then
+    elif [ -n "$result2" ] && [ -n "$result1" ]; then
         echo -n -e "\r ChatGPT:\t\t\t\t${Font_Red}No${Font_Suffix}\n"
         return
-    fi
-    if [ -z "$result1" ] && [ -n "$result2" ]; then
-        echo -n -e "\r ChatGPT:\t\t\t\t${Font_Yellow}No (Only Available with Web Browser)${Font_Suffix}\n"
+    elif [ -z "$result1" ] && [ -n "$result2" ] && [[ "$tmpresult1" != "curl"* ]]; then
+        echo -n -e "\r ChatGPT:\t\t${resultunlocktype}\t${Font_Yellow}Website Only (Region: ${countryCode})${Font_Suffix}\n"
+        return
+    elif [ -n "$result1" ] && [ -z "$result2" ]; then
+        echo -n -e "\r ChatGPT:\t\t${resultunlocktype}\t${Font_Yellow}APP Only (Region: ${countryCode})${Font_Suffix}\n"
+        return
+    elif [[ "$tmpresult1" == "curl"* ]] && [ -n "$result2" ]; then
+        echo -n -e "\r ChatGPT:\t\t\t\t${Font_Red}No${Font_Suffix}\n"
+        return
+    else
+        echo -n -e "\r ChatGPT:\t\t\t\t${Font_Red}Failed${Font_Suffix}\n"
         return
     fi
-    if [ -n "$result1" ] && [ -z "$result2" ]; then
-        echo -n -e "\r ChatGPT:\t\t\t\t${Font_Yellow}No (Only Available with Mobile APP)${Font_Suffix}\n"
-        return
-    fi
-
-    echo -n -e "\r ChatGPT:\t\t\t\t${Font_Red}Failed (Error: Unknown)${Font_Suffix}\n"
 }
 
 function WebTest_Gemini() {
