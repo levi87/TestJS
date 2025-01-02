@@ -1185,3 +1185,6 @@ DOMAIN,tianshu-x.gtimg.cn
 DOMAIN-SUFFIX,cmshow.gtimg.cn
 DOMAIN-SUFFIX,discuz.gtimg.cn
 DOMAIN-SUFFIX,pgdt.gtimg.cn
+# Alipay
+DOMAIN-SUFFIX,amdc.alipay.com
+DOMAIN-KEYWORD,ynuf.alipay.com
