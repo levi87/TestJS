@@ -959,6 +959,12 @@ DOMAIN-SUFFIX,stat.pandora.xiaomi.com
 DOMAIN-SUFFIX,storeconfig.mistat.xiaomi.com
 DOMAIN-SUFFIX,wtradv.market.xiaomi.com
 DOMAIN-SUFFIX,xmpush.xiaomi.com
+DOMAIN-SUFFIX,lxcdn.dl.files.xiaomi.net
+DOMAIN-SUFFIX,migrate.driveapi.micloud.xiaomi.net
+DOMAIN-SUFFIX,mlog.search.xiaomi.net
+DOMAIN-SUFFIX,pdc.micloud.xiaomi.net
+DOMAIN-SUFFIX,resolver.msg.xiaomi.net
+DOMAIN-SUFFIX,sec-cdn.static.xiaomi.net
 # Ele
 DOMAIN-SUFFIX,app-monitor.ele.me
 DOMAIN-SUFFIX,client-api.ele.me
