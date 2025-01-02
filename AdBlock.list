@@ -1158,3 +1158,13 @@ DOMAIN-SUFFIX,rdx.autohome.com.cn
 DOMAIN-SUFFIX,stats.autohome.com.cn
 DOMAIN-KEYWORD,adproxy.autohome.com
 DOMAIN-KEYWORD,applogapi.autohome.com
+# Qlogo
+DOMAIN-SUFFIX,gu.qlogo.cn
+DOMAIN-SUFFIX,py.qlogo.cn
+DOMAIN-SUFFIX,py2.qlogo.cn
+# Xiaojukeji
+DOMAIN-SUFFIX,ct.xiaojukeji.com
+DOMAIN-SUFFIX,gwp.xiaojukeji.com
+# QCloud
+DOMAIN-SUFFIX,report.qcloud.com
+DOMAIN,log.qvb.qcloud.com
