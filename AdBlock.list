@@ -57,6 +57,8 @@ DOMAIN-SUFFIX,textlink.simba.taobao.com
 DOMAIN-SUFFIX,tyh.taobao.com
 DOMAIN-SUFFIX,unitacs.m.taobao.com
 DOMAIN-SUFFIX,w.m.taobao.com
+DOMAIN-SUFFIX,tns.simba.taobao.com
+DOMAIN-SUFFIX,guide-acs.taobao.com
 # Baidu
 DOMAIN,baichuan-sdk.alicdn.com
 DOMAIN,browserkernel.baidu.com
@@ -303,3 +305,29 @@ DOMAIN-SUFFIX,optimus-ads.amap.com
 DOMAIN-SUFFIX,optimus-ads.amap.com.w.alikunlun.com
 DOMAIN-SUFFIX,page.amap.com
 DOMAIN-KEYWORD,apiinit.amap.com
+# JD
+DOMAIN-SUFFIX,gia.jd.com
+DOMAIN,ads-union.jd.com
+DOMAIN,dgstatic.jd.com
+DOMAIN,dns.jd.com
+DOMAIN,jrad.jd.com
+DOMAIN,mercury.jd.com
+DOMAIN-SUFFIX,c-nfa.jd.com
+DOMAIN-SUFFIX,cm.jd.com
+DOMAIN-SUFFIX,du.jd.com
+DOMAIN-SUFFIX,im-x.jd.com
+DOMAIN-SUFFIX,img-x.jd.com
+DOMAIN-SUFFIX,jcm.jd.com
+DOMAIN-SUFFIX,jdqd.jd.com
+DOMAIN-SUFFIX,jrclick.jd.com
+DOMAIN-SUFFIX,jzt.jd.com
+DOMAIN-SUFFIX,shooter.m.jd.com
+DOMAIN-SUFFIX,stat.m.jd.com
+DOMAIN-SUFFIX,u-x.jd.com
+DOMAIN-SUFFIX,wn.x.jd.com
+DOMAIN-KEYWORD,bdsp.x.jd.com
+DOMAIN-KEYWORD,kepler.jd.com
+DOMAIN-KEYWORD,keplerapi.jd.com
+DOMAIN-KEYWORD,mapi.m.jd.com
+DOMAIN-KEYWORD,policy.jd.com
+DOMAIN-SUFFIX,cps.360buy.com
