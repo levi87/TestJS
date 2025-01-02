@@ -6,6 +6,7 @@ DOMAIN,safebrowsing.googleapis.com
 DOMAIN-KEYWORD,app-analytics
 DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com
 DOMAIN-SUFFIX,firebaselogging.googleapis.com
+DOMAIN,www.googletagmanager.com
 # Taobao
 DOMAIN-KEYWORD,fans.m.tmall.com
 DOMAIN,accscdn.m.taobao.com
