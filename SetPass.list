@@ -1,0 +1,15 @@
+# PayPal
+DOMAIN-KEYWORD,paypal
+USER-AGENT,PayPal*
+# Google
+USER-AGENT,*com.google.Drive*
+USER-AGENT,Google.Drive*
+DOMAIN-KEYWORD,appspot
+DOMAIN-KEYWORD,blogspot
+DOMAIN-KEYWORD,gmail
+DOMAIN-KEYWORD,google
+DOMAIN-KEYWORD,recaptcha
+DOMAIN-SUFFIX,adsense.com
+DOMAIN-SUFFIX,gstatic.com
+# GitHub
+DOMAIN-KEYWORD,github
