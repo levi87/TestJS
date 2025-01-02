@@ -292,6 +292,7 @@ DOMAIN-SUFFIX,znsv.baidu.com
 DOMAIN-KEYWORD,caclick.baidu.com
 DOMAIN-KEYWORD,cpu.baidu.com
 DOMAIN-KEYWORD,mobads.baidu.com
+DOMAIN-SUFFIX,fclog.baidu.com
 # AMap
 DOMAIN,aboard.apilocate.amap.com
 DOMAIN,icloud-amap.com
