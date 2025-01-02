@@ -3,7 +3,15 @@ DOMAIN-SUFFIX,qmlog.cn
 DOMAIN-SUFFIX,jpush.cn
 DOMAIN-SUFFIX,crashlytics.com
 DOMAIN,safebrowsing.googleapis.com
+DOMAIN-KEYWORD,analytics.
 DOMAIN-KEYWORD,app-analytics
+DOMAIN-KEYWORD,app-log.
+DOMAIN-KEYWORD,applog.
+DOMAIN-KEYWORD,fzlm
+DOMAIN-KEYWORD,ios-log.
+DOMAIN-KEYWORD,ioslog.
+DOMAIN-KEYWORD,pc-log.
+DOMAIN-KEYWORD,pclog.
 DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com
 DOMAIN-SUFFIX,firebaselogging.googleapis.com
 DOMAIN,www.googletagmanager.com
