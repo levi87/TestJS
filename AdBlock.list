@@ -1197,3 +1197,21 @@ DOMAIN-SUFFIX,pgdt.gtimg.cn
 # Alipay
 DOMAIN-SUFFIX,amdc.alipay.com
 DOMAIN-KEYWORD,ynuf.alipay.com
+# 17173
+DOMAIN,stat.v.17173.com
+DOMAIN-SUFFIX,ad.17173.com
+DOMAIN-SUFFIX,cvda.17173.com
+DOMAIN-SUFFIX,log1.17173.com
+DOMAIN-SUFFIX,vda.17173.com
+# Qingting
+DOMAIN,ad-cdn.qingting.fm
+DOMAIN,adlaunch.qingting.fm
+DOMAIN,list.z.qingting.fm
+DOMAIN-SUFFIX,ad.qingting.fm
+DOMAIN-SUFFIX,admgr.qingting.fm
+DOMAIN-SUFFIX,dload.qd.qingting.fm
+DOMAIN-SUFFIX,logger.qingting.fm
+DOMAIN-SUFFIX,s.qd.qingting.fm
+DOMAIN-SUFFIX,s.qtad.qingting.fm
+# Douban
+DOMAIN-SUFFIX,erebor.douban.com
