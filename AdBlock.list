@@ -1027,6 +1027,37 @@ DOMAIN-KEYWORD,rescn.u3.ucweb.com
 DOMAIN-KEYWORD,utp-dmp.ucweb.com
 DOMAIN-KEYWORD,utp.ucweb.com
 DOMAIN-KEYWORD,vs10.bj2ct.u3.ucweb.com
+DOMAIN,access.open.uc.cn
+DOMAIN,api.c.uc.cn
+DOMAIN,applog-perf.uc.cn
+DOMAIN,cartoonapi.uc.cn
+DOMAIN,cms.uc.cn
+DOMAIN,coral.uc.cn
+DOMAIN,emoji.uc.cn
+DOMAIN,feedback.uc.cn
+DOMAIN,gjapplog.uc.cn
+DOMAIN,holmeshelptest.uc.cn
+DOMAIN,navigis.uc.cn
+DOMAIN,ucdc-upaas.uc.cn
+DOMAIN,umessage-online-zb.uc.cn
+DOMAIN,v.uc.cn
+DOMAIN,voice-service.uc.cn
+DOMAIN-SUFFIX,ads.uc.cn
+DOMAIN-SUFFIX,adslot.uc.cn
+DOMAIN-SUFFIX,alissl.ucdl.pp.uc.cn
+DOMAIN-SUFFIX,api.mp.uc.cn
+DOMAIN-SUFFIX,api.open.uc.cn
+DOMAIN-SUFFIX,applog.uc.cn
+DOMAIN-SUFFIX,applogios.uc.cn
+DOMAIN-SUFFIX,bench.uc.cn
+DOMAIN-SUFFIX,client.tv.uc.cn
+DOMAIN-SUFFIX,coral-task.uc.cn
+DOMAIN-SUFFIX,dispatcher.upmc.uc.cn
+DOMAIN-SUFFIX,hao.uc.cn
+DOMAIN-SUFFIX,hcadv.video.ums.uc.cn
+DOMAIN-SUFFIX,puds.test.uae.uc.cn
+DOMAIN-SUFFIX,woodpecker.uc.cn
+DOMAIN-KEYWORD,track.uc.cn
 # Kugou
 DOMAIN,adsfilebssdlbig.tx.kugou.com
 DOMAIN,exceptionlog.kugou.com
@@ -1215,3 +1246,12 @@ DOMAIN-SUFFIX,s.qd.qingting.fm
 DOMAIN-SUFFIX,s.qtad.qingting.fm
 # Douban
 DOMAIN-SUFFIX,erebor.douban.com
+# Moji
+DOMAIN-SUFFIX,adlaunch.moji.com
+DOMAIN-SUFFIX,cdn.moji.com
+DOMAIN-SUFFIX,log.moji.com
+DOMAIN-SUFFIX,stat.moji.com
+DOMAIN-KEYWORD,ad.api.moji.com
+DOMAIN-KEYWORD,fds.api.moji.com
+DOMAIN-KEYWORD,me.api.moji.com
+DOMAIN-KEYWORD,v1.log.moji.com
