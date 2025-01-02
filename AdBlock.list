@@ -1168,3 +1168,20 @@ DOMAIN-SUFFIX,gwp.xiaojukeji.com
 # QCloud
 DOMAIN-SUFFIX,report.qcloud.com
 DOMAIN,log.qvb.qcloud.com
+# Gtimg
+DOMAIN-SUFFIX,beacon.gtimg.com
+DOMAIN-SUFFIX,bla.gtimg.com
+DOMAIN-SUFFIX,img1.gtimg.com
+DOMAIN-SUFFIX,lb.gtimg.com
+DOMAIN-SUFFIX,pgdt.gtimg.com
+DOMAIN-SUFFIX,ra.gtimg.com
+DOMAIN-SUFFIX,splashqqlive.gtimg.com
+DOMAIN-SUFFIX,swa.gtimg.com
+DOMAIN-SUFFIX,tui.gtimg.com
+DOMAIN-SUFFIX,wa.gtimg.com
+DOMAIN-SUFFIX,wb.gtimg.com
+DOMAIN-SUFFIX,pgdt.gtimg.cn
+DOMAIN,tianshu-x.gtimg.cn
+DOMAIN-SUFFIX,cmshow.gtimg.cn
+DOMAIN-SUFFIX,discuz.gtimg.cn
+DOMAIN-SUFFIX,pgdt.gtimg.cn
