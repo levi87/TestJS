@@ -10,6 +10,7 @@ DOMAIN,www.googletagmanager.com
 DOMAIN-SUFFIX,px.effirst.com
 DOMAIN-SUFFIX,doubleclick.com
 DOMAIN-SUFFIX,doubleclick.net
+DOMAIN-SUFFIX,collect.alipay.com
 # Taobao
 DOMAIN-KEYWORD,fans.m.tmall.com
 DOMAIN,accscdn.m.taobao.com
