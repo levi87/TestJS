@@ -913,3 +913,59 @@ DOMAIN-SUFFIX,tracker.sns.iqiyi.com
 DOMAIN-SUFFIX,yuedu.iqiyi.com
 # MMSTAT
 DOMAIN-SUFFIX,mmstat.com
+# XiaoMi
+DOMAIN-SUFFIX,a.hl.mi.com
+DOMAIN-SUFFIX,ad.mi.com
+DOMAIN-SUFFIX,d.g.mi.com
+DOMAIN-SUFFIX,migc.g.mi.com
+DOMAIN-SUFFIX,migcreport.g.mi.com
+DOMAIN-SUFFIX,mis.g.mi.com
+DOMAIN-SUFFIX,mivideo.g.mi.com
+DOMAIN-SUFFIX,sg.a.stat.mi.com
+DOMAIN-SUFFIX,staging.admin.e.mi.com
+DOMAIN-SUFFIX,union.mi.com
+DOMAIN,api.developer.xiaomi.com
+DOMAIN,bigdata.xiaomi.com
+DOMAIN,data.mistat.intl.xiaomi.com
+DOMAIN,starfish.pandora.xiaomi.com
+DOMAIN,tat.pandora.xiaomi.com
+DOMAIN,tracker.ai.xiaomi.com
+DOMAIN,video.market.xiaomi.com
+DOMAIN-SUFFIX,a.market.xiaomi.com
+DOMAIN-SUFFIX,a.stat.xiaomi.com
+DOMAIN-SUFFIX,abtest.mistat.xiaomi.com
+DOMAIN-SUFFIX,ad.intl.xiaomi.com
+DOMAIN-SUFFIX,ad.xiaomi.com
+DOMAIN-SUFFIX,ad1.xiaomi.com
+DOMAIN-SUFFIX,admob.xiaomi.com
+DOMAIN-SUFFIX,bss.pandora.xiaomi.com
+DOMAIN-SUFFIX,de.pandora.xiaomi.com
+DOMAIN-SUFFIX,dvb.pandora.xiaomi.com
+DOMAIN-SUFFIX,image.box.xiaomi.com
+DOMAIN-SUFFIX,jellyfish.pandora.xiaomi.com
+DOMAIN-SUFFIX,mishop.pandora.xiaomi.com
+DOMAIN-SUFFIX,notice.game.xiaomi.com
+DOMAIN-SUFFIX,o2o.api.xiaomi.com
+DOMAIN-SUFFIX,ppurifier.game.xiaomi.com
+DOMAIN-SUFFIX,shenghuo.xiaomi.com
+DOMAIN-SUFFIX,stat.pandora.xiaomi.com
+DOMAIN-SUFFIX,storeconfig.mistat.xiaomi.com
+DOMAIN-SUFFIX,wtradv.market.xiaomi.com
+DOMAIN-SUFFIX,xmpush.xiaomi.com
+# Ele
+DOMAIN-SUFFIX,app-monitor.ele.me
+DOMAIN-SUFFIX,client-api.ele.me
+DOMAIN-SUFFIX,grand.ele.me
+DOMAIN-SUFFIX,log.star.ele.me
+DOMAIN-SUFFIX,mobile-pubt.ele.me
+DOMAIN-SUFFIX,newton-api.ele.me
+# meituan
+DOMAIN-SUFFIX,mads.meituan.com
+DOMAIN-SUFFIX,wmlog.meituan.com
+# 12306
+DOMAIN-SUFFIX,ad.12306.cn
+# 10010
+DOMAIN-SUFFIX,m1.ad.10010.com
+DOMAIN,ad.10010.com
+# 10086
+DOMAIN-SUFFIX,go.10086.cn
