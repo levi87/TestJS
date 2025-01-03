@@ -22,6 +22,7 @@ DOMAIN-SUFFIX,collect.alipay.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,tanx.com
 DOMAIN,statics.wosaimg.com
+DOMAIN-SUFFIX,mixpanel.com
 # Microsoft
 DOMAIN,events.data.microsoft.com
 # Taobao
