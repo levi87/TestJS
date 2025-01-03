@@ -23,6 +23,7 @@ DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,tanx.com
 DOMAIN,statics.wosaimg.com
 DOMAIN-SUFFIX,mixpanel.com
+DOMAIN-SUFFIX,adnxs.com
 # Microsoft
 DOMAIN,events.data.microsoft.com
 # Taobao
