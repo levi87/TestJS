@@ -1,4 +1,6 @@
 # Apple R
+DOMAIN-SUFFIX,digicert.com
+DOMAIN-SUFFIX,mzstatic.com
 DOMAIN-SUFFIX,apple.com
 DOMAIN-SUFFIX,icloud.com
 IP-CIDR,17.0.0.0/8
