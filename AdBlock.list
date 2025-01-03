@@ -33,6 +33,27 @@ DOMAIN-SUFFIX,adukwai.com
 DOMAIN,jpush.io
 DOMAIN-SUFFIX,sis.jpush.io
 DOMAIN-SUFFIX,igexin.com
+DOMAIN,adaccount.csdn.net
+DOMAIN,event.csdn.net
+DOMAIN,kunpeng.csdn.net
+DOMAIN,kunyu.csdn.net
+DOMAIN,zhannei-dm.csdn.net
+DOMAIN-SUFFIX,ad.csdn.net
+DOMAIN-SUFFIX,ads.csdn.net
+DOMAIN-SUFFIX,counter.csdn.net
+DOMAIN-SUFFIX,dc.csdn.net
+DOMAIN-SUFFIX,dc2.csdn.net
+DOMAIN-SUFFIX,medal.blog.csdn.net
+DOMAIN-SUFFIX,icons.mydrivers.com
+DOMAIN-SUFFIX,xc.mydrivers.com
+DOMAIN,ccdace.hupu.com
+DOMAIN,hd.hupu.com
+DOMAIN,shence.hupu.com
+DOMAIN-SUFFIX,adx-api.hupu.com
+DOMAIN-SUFFIX,adx.hupu.com
+DOMAIN-SUFFIX,cc.dace.hupu.com
+DOMAIN-SUFFIX,goblin.hupu.com
+DOMAIN-SUFFIX,orz.hupu.com
 # 127
 DOMAIN,iadmat.nosdn.127.net
 DOMAIN-SUFFIX,haitaoad.nosdn.127.net
