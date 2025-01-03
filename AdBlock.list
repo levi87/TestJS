@@ -30,6 +30,8 @@ DOMAIN-SUFFIX,cnzz.com
 DOMAIN,stats.cn.ronghub.com
 DOMAIN-SUFFIX,lianjia.com
 DOMAIN-SUFFIX,adukwai.com
+DOMAIN,jpush.io
+DOMAIN-SUFFIX,sis.jpush.io
 # 127
 DOMAIN,iadmat.nosdn.127.net
 DOMAIN-SUFFIX,haitaoad.nosdn.127.net
