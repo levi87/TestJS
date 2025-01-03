@@ -1299,6 +1299,10 @@ DOMAIN-SUFFIX,events.reddit.com
 DOMAIN-SUFFIX,w3-reporting.reddit.com
 # branch
 DOMAIN-SUFFIX,branch.io
+# facebook
+DOMAIN,badge.facebook.com
+DOMAIN,pixel.facebook.com
+DOMAIN-SUFFIX,staticxx.facebook.com
 # Wo
 DOMAIN,bjdnserror1.wo.com.cn
 DOMAIN,bjdnserror2.wo.com.cn
