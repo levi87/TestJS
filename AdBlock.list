@@ -22,6 +22,8 @@ DOMAIN-SUFFIX,collect.alipay.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,tanx.com
 DOMAIN,statics.wosaimg.com
+# Microsoft
+DOMAIN,events.data.microsoft.com
 # Taobao
 DOMAIN-KEYWORD,fans.m.tmall.com
 DOMAIN,accscdn.m.taobao.com
