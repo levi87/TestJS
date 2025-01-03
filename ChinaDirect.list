@@ -61,6 +61,9 @@ DOMAIN-SUFFIX,skype.net
 DOMAIN-SUFFIX,azure.cn
 DOMAIN-SUFFIX,azure.com
 DOMAIN-SUFFIX,azure.net
+DOMAIN-SUFFIX,hotmail.com
+DOMAIN-SUFFIX,hotmail.net
+DOMAIN-SUFFIX,onedrive.com
 # China ASN
 IP-ASN,10111,no-resolve
 IP-ASN,10206,no-resolve
