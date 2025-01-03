@@ -534,7 +534,7 @@ DOMAIN,jsapi.html5.qq.com
 DOMAIN,life.html5.qq.com
 DOMAIN,masdkv6.3g.qq.com
 DOMAIN,mdt.qq.com
-DOMAIN,monitor.music.qq.com
+DOMAIN-SUFFIX,monitor.music.qq.com
 DOMAIN,omgid.qq.com
 DOMAIN,op.ssp.qq.com
 DOMAIN,openmsf.3g.qq.com
@@ -547,7 +547,7 @@ DOMAIN,rlog.video.qq.com
 DOMAIN,rmpad.imtt.qq.com
 DOMAIN,sdksp.video.qq.com
 DOMAIN,soup.v.qq.com
-DOMAIN,stat.y.qq.com
+DOMAIN-SUFFIX,stat.y.qq.com
 DOMAIN,tbs.imtt.qq.com
 DOMAIN,tbs.qq.com
 DOMAIN,tdc.qq.com
@@ -716,6 +716,15 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com
 DOMAIN-SUFFIX,xc.gdt.qq.com
 DOMAIN-SUFFIX,yun-hl.3g.qq.com
 DOMAIN-KEYWORD,android.bugly.qq.com
+DOMAIN-SUFFIX,beacon.cdn.qq.com
+DOMAIN-SUFFIX,beacon.qq.com
+DOMAIN-SUFFIX,beaconcdn.qq.com
+DOMAIN-SUFFIX,gdt.qq.com
+DOMAIN-SUFFIX,mtrace.qq.com
+DOMAIN-SUFFIX,pingjs.qq.com
+DOMAIN-SUFFIX,rcgi.video.qq.com
+DOMAIN-SUFFIX,sngmta.qq.com
+DOMAIN-SUFFIX,trace.qq.com
 # Toutiao
 DOMAIN-SUFFIX,dsp.toutiao.com
 DOMAIN-SUFFIX,nativeapp.toutiao.com
