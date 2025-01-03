@@ -64,6 +64,19 @@ DOMAIN-SUFFIX,azure.net
 DOMAIN-SUFFIX,hotmail.com
 DOMAIN-SUFFIX,hotmail.net
 DOMAIN-SUFFIX,onedrive.com
+# Tesla
+DOMAIN-SUFFIX,solarcity.com
+DOMAIN-SUFFIX,tesla-cdn.thron.cn
+DOMAIN-SUFFIX,tesla-cdn.thron.com
+DOMAIN-SUFFIX,tesla.com
+DOMAIN-SUFFIX,tesla.com.cn
+DOMAIN-SUFFIX,tesla.services
+DOMAIN-SUFFIX,teslaenergy.services
+DOMAIN-SUFFIX,teslamotors.cn
+DOMAIN-SUFFIX,teslamotors.com
+DOMAIN-SUFFIX,teslamotors.com.cn
+DOMAIN-SUFFIX,teslazta.net
+DOMAIN-SUFFIX,ts.la
 # China ASN
 IP-ASN,10111,no-resolve
 IP-ASN,10206,no-resolve
