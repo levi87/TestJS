@@ -1,4 +1,5 @@
 # Apple R
+DOMAIN-SUFFIX,icloud.com
 IP-CIDR,17.0.0.0/8
 # WeChat
 USER-AGENT,MicroMessenger*
