@@ -362,6 +362,8 @@ DOMAIN-KEYWORD,keplerapi.jd.com
 DOMAIN-KEYWORD,mapi.m.jd.com
 DOMAIN-KEYWORD,policy.jd.com
 DOMAIN-SUFFIX,cps.360buy.com
+DOMAIN-SUFFIX,jddebug.com
+IP-CIDR6,2402:db40:5100:1011::5/128
 # Ali
 DOMAIN,httpdns.alicdn.com
 DOMAIN,ilce.alicdn.com
