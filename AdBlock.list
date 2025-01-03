@@ -28,6 +28,8 @@ DOMAIN,badjs.weixinbridge.com
 DOMAIN-SUFFIX,cnzz.cn
 DOMAIN-SUFFIX,cnzz.com
 DOMAIN,stats.cn.ronghub.com
+DOMAIN-SUFFIX,lianjia.com
+DOMAIN-SUFFIX,adukwai.com
 # 127
 DOMAIN,iadmat.nosdn.127.net
 DOMAIN-SUFFIX,haitaoad.nosdn.127.net
@@ -737,6 +739,7 @@ DOMAIN-SUFFIX,pingjs.qq.com
 DOMAIN-SUFFIX,rcgi.video.qq.com
 DOMAIN-SUFFIX,sngmta.qq.com
 DOMAIN-SUFFIX,trace.qq.com
+DOMAIN-SUFFIX,mazu.m.qq.com
 DOMAIN,ad.tencentmusic.com
 DOMAIN,adcdn.tencentmusic.com
 DOMAIN,adcdn6.tencentmusic.com
