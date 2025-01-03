@@ -28,6 +28,13 @@ DOMAIN,badjs.weixinbridge.com
 DOMAIN-SUFFIX,cnzz.cn
 DOMAIN-SUFFIX,cnzz.com
 DOMAIN,stats.cn.ronghub.com
+# 127
+DOMAIN,iadmat.nosdn.127.net
+DOMAIN-SUFFIX,haitaoad.nosdn.127.net
+DOMAIN-SUFFIX,iadmatvideo.nosdn.127.net
+DOMAIN-SUFFIX,pg-ad-b1.nosdn.127.net
+DOMAIN-SUFFIX,wanproxy.127.net
+DOMAIN-SUFFIX,yt-adp.nosdn.127.net
 # Microsoft
 DOMAIN,events.data.microsoft.com
 # Taobao
@@ -730,6 +737,12 @@ DOMAIN-SUFFIX,pingjs.qq.com
 DOMAIN-SUFFIX,rcgi.video.qq.com
 DOMAIN-SUFFIX,sngmta.qq.com
 DOMAIN-SUFFIX,trace.qq.com
+DOMAIN,ad.tencentmusic.com
+DOMAIN,adcdn.tencentmusic.com
+DOMAIN,adcdn6.tencentmusic.com
+DOMAIN,adclick.tencentmusic.com
+DOMAIN,adexpo.tencentmusic.com
+DOMAIN,adstats.tencentmusic.com
 # Toutiao
 DOMAIN-SUFFIX,dsp.toutiao.com
 DOMAIN-SUFFIX,nativeapp.toutiao.com
