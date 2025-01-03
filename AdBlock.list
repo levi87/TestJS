@@ -809,6 +809,7 @@ DOMAIN-KEYWORD,extlog.snssdk.com
 DOMAIN-KEYWORD,sdfp.snssdk.com
 # Getui
 DOMAIN-SUFFIX,getui.com
+DOMAIN-SUFFIX,getui.net
 DOMAIN-KEYWORD,c-hzgt2.getui.com
 DOMAIN-KEYWORD,cm-10-134.getui.com
 DOMAIN-KEYWORD,cm-10-35.getui.com
