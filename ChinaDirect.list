@@ -7,6 +7,9 @@ IP-CIDR,17.0.0.0/8
 # WeChat
 USER-AGENT,MicroMessenger*
 USER-AGENT,WeChat*
+# 1Password
+DOMAIN-SUFFIX,1password.com
+DOMAIN-SUFFIX,agilebits.com
 # Weibo
 DOMAIN-KEYWORD,weibo
 # NeteaseMusic
