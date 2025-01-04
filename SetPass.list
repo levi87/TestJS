@@ -17,3 +17,4 @@ DOMAIN-KEYWORD,github
 DOMAIN,one.one.one.one
 # Apple
 DOMAIN-SUFFIX,safebrowsing.apple
+DOMAIN-SUFFIX,token.safebrowsing.apple
