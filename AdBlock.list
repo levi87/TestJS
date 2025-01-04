@@ -56,6 +56,7 @@ DOMAIN-SUFFIX,goblin.hupu.com
 DOMAIN-SUFFIX,orz.hupu.com
 DOMAIN-SUFFIX,cm.downloader.commercial.kuaishou.com
 DOMAIN-SUFFIX,e.kuaishou.com
+DOMAIN,cloudflareinsights.com
 # 127
 DOMAIN,iadmat.nosdn.127.net
 DOMAIN-SUFFIX,haitaoad.nosdn.127.net
