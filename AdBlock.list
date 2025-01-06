@@ -59,6 +59,10 @@ DOMAIN-SUFFIX,e.kuaishou.com
 DOMAIN,cloudflareinsights.com
 DOMAIN,static.cloudflareinsights.com
 DOMAIN-SUFFIX,ilianyue.com
+DOMAIN-KEYWORD,s1.pstatp.com
+DOMAIN-KEYWORD,s2.pstatp.com
+DOMAIN-KEYWORD,s3.pstatp.com
+DOMAIN-KEYWORD,s3a.pstatp.com
 # 127
 DOMAIN,iadmat.nosdn.127.net
 DOMAIN-SUFFIX,haitaoad.nosdn.127.net
