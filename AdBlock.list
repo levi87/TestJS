@@ -14,6 +14,7 @@ DOMAIN-KEYWORD,pc-log.
 DOMAIN-KEYWORD,pclog.
 DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com
 DOMAIN-SUFFIX,firebaselogging.googleapis.com
+DOMAIN,www.googletagmanager.com
 DOMAIN-SUFFIX,px.effirst.com
 DOMAIN-SUFFIX,doubleclick.com
 DOMAIN-SUFFIX,doubleclick.net
