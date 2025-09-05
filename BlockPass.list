@@ -1,5 +1,7 @@
 # Other
 DOMAIN,mozilla.cloudflare-dns.com
+# Grok
+DOMAIN-SUFFIX,grok.com
 # X
 DOMAIN-SUFFIX,ads-twitter.com
 DOMAIN-SUFFIX,cms-twdigitalassets.com
