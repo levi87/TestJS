@@ -5,7 +5,6 @@ DOMAIN-SUFFIX,apple.com
 DOMAIN-SUFFIX,icloud.com
 IP-CIDR,17.0.0.0/8
 # WeChat
-PROCESS-NAME,WeChat*
 USER-AGENT,MicroMessenger*
 USER-AGENT,WeChat*
 # 1Password
@@ -14,10 +13,8 @@ DOMAIN-SUFFIX,agilebits.com
 # Weibo
 DOMAIN-KEYWORD,weibo
 # NeteaseMusic
-PROCESS-NAME,NeteaseMusic*
 USER-AGENT,NeteaseMusic*
 # QQ
-PROCESS-NAME,QQMusic*
 USER-AGENT,QQ*
 # Bilibili
 USER-AGENT,*bili*
