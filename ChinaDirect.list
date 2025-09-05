@@ -14,8 +14,10 @@ DOMAIN-SUFFIX,agilebits.com
 # Weibo
 DOMAIN-KEYWORD,weibo
 # NeteaseMusic
+PROCESS-NAME,NeteaseMusic*
 USER-AGENT,NeteaseMusic*
 # QQ
+PROCESS-NAME,QQMusic*
 USER-AGENT,QQ*
 # Bilibili
 USER-AGENT,*bili*
