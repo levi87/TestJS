@@ -5,6 +5,7 @@ DOMAIN-SUFFIX,apple.com
 DOMAIN-SUFFIX,icloud.com
 IP-CIDR,17.0.0.0/8
 # WeChat
+PROCESS-NAME,WeChat*
 USER-AGENT,MicroMessenger*
 USER-AGENT,WeChat*
 # 1Password
