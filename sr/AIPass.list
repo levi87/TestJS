@@ -1,0 +1,9 @@
+# OpenAI
+DOMAIN-KEYWORD,openai
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,auth0.com
+DOMAIN,browser-intake-datadoghq.com
+# Claude
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
