@@ -1,0 +1,4 @@
+# Apple
+DOMAIN-SUFFIX,token.safebrowsing.apple
+DOMAIN-SUFFIX,proxy.safebrowsing.apple
+DOMAIN,apple-relay.apple.com
