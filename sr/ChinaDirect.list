@@ -16,6 +16,7 @@ DOMAIN-SUFFIX,agilebits.com
 DOMAIN-KEYWORD,weibo
 # NeteaseMusic
 USER-AGENT,NeteaseMusic*
+DOMAIN-SUFFIX,netease.com
 # 163/126
 DOMAIN-SUFFIX,163.com
 DOMAIN-SUFFIX,126.com
