@@ -1,17 +1,27 @@
 # PayPal
-DOMAIN-KEYWORD,paypal
+DOMAIN-SUFFIX,paypal.com
+DOMAIN-SUFFIX,paypalobjects.com
 USER-AGENT,PayPal*
 # Google
+DOMAIN-SUFFIX,google.com
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN-SUFFIX,googlevideo.com
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,gmail.com
+DOMAIN-SUFFIX,googleanalytics.com
+DOMAIN-SUFFIX,googletagmanager.com
+DOMAIN-SUFFIX,googleadservices.com
+DOMAIN-SUFFIX,appspot.com
+DOMAIN-SUFFIX,blogspot.com
+DOMAIN-SUFFIX,recaptcha.net
 USER-AGENT,*com.google.Drive*
 USER-AGENT,Google.Drive*
-DOMAIN-KEYWORD,appspot
-DOMAIN-KEYWORD,blogspot
-DOMAIN-KEYWORD,gmail
-DOMAIN-KEYWORD,google
-DOMAIN-KEYWORD,recaptcha
-DOMAIN-SUFFIX,adsense.com
-DOMAIN-SUFFIX,gstatic.com
 # GitHub
-DOMAIN-KEYWORD,github
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,github.io
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,githubassets.com
 # ONE ONE ONE ONE
 DOMAIN,one.one.one.one
+DOMAIN,mozilla.cloudflare-dns.com
