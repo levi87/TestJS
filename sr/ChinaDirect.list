@@ -29,6 +29,7 @@ DOMAIN-SUFFIX,douyin.com
 # QQ
 USER-AGENT,QQ*
 DOMAIN-SUFFIX,qq.com
+DOMAIN-SUFFIX,tencent.com
 # Bilibili
 USER-AGENT,*bili*
 USER-AGENT,Bilibili*
