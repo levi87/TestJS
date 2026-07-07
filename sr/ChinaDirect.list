@@ -16,6 +16,11 @@ DOMAIN-SUFFIX,agilebits.com
 DOMAIN-KEYWORD,weibo
 # NeteaseMusic
 USER-AGENT,NeteaseMusic*
+# 163/126
+DOMAIN-SUFFIX,163.com
+DOMAIN-SUFFIX,126.com
+# snssdk
+DOMAIN-SUFFIX,snssdk.com
 # QQ
 USER-AGENT,QQ*
 DOMAIN-SUFFIX,qq.com
