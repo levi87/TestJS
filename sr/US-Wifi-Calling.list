@@ -1,0 +1,7 @@
+# Ultra Mobile PayGo 紫卡 / T-Mobile (美国 MCC: 310, MNC: 260)
+DOMAIN-SUFFIX, epc.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-KEYWORD, epdg.epc.mnc260.mcc310
+DOMAIN-SUFFIX, ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX, ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX, ultramobile.com
+DOMAIN-SUFFIX, t-mobile.com
