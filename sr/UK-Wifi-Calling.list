@@ -3,13 +3,17 @@ DOMAIN-SUFFIX, epc.mnc010.mcc234.pub.3gppnetwork.org
 DOMAIN-KEYWORD, epdg.epc.mnc010.mcc234
 DOMAIN-SUFFIX, ss.epdg.epc.mnc010.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX, mnc015.mcc234.pub.3gppnetwork.org
+DOMAIN-SUFFIX, epdg.epc.mnc010.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX, epdg.epc.mnc015.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX, epdg.epc.mnc020.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX, ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX, ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX, entsrv-uk.vodafone.com
+DOMAIN-SUFFIX, vodafone.co.uk
+DOMAIN-SUFFIX, vodafone.com
 DOMAIN-SUFFIX, vuk-gto.prod.ondemandconnectivity.com
 DOMAIN-SUFFIX, giffgaff.com
 DOMAIN-SUFFIX, gbqofs.io
-IP-CIDR,88.82.0.0/19
+IP-CIDR, 88.82.0.0/19
 IP-CIDR, 87.194.0.0/16
+IP-CIDR, 212.183.128.0/19
