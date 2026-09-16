@@ -1,13 +1,19 @@
-# AppleSiriAI
+# --- Apple Intelligence 与 Siri 核心（必须走代理）---
 DOMAIN-SUFFIX,pcc.apple.com
 DOMAIN-SUFFIX,fides.apple.com
+DOMAIN-SUFFIX,siri.apple.com
 DOMAIN-SUFFIX,guzzoni.apple.com
+DOMAIN-SUFFIX,smoot.apple.com
+
+# --- 苹果专用中继出口（必须走代理）---
+DOMAIN-SUFFIX,apple-relay.apple.com
 DOMAIN-SUFFIX,apple-relay.cloudflare.com
 DOMAIN-SUFFIX,apple-relay.fastly-edge.com
 DOMAIN-SUFFIX,cp4.cloudflare.com
-DOMAIN-SUFFIX,apple-relay.apple.com
-DOMAIN-SUFFIX,smoot.apple.com
-DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
-DOMAIN-SUFFIX,mask-api.fe.apple-dns.net
-DOMAIN-SUFFIX,mast-t.apple-dns.net
-DOMAIN-SUFFIX,mask.apple-dns.net
+
+# --- 可选：仅精准代理 Geo-IP 检测，不影响地图 ---
+#DOMAIN,gspe1-ssl.ls.apple.com
+
+# --- 基础服务（保持直连 DIRECT，避免影响地图和相册同步）---
+# ls.apple.com -> DIRECT
+# gateway.icloud.com -> DIRECT
