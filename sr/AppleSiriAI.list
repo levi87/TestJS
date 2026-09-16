@@ -10,6 +10,10 @@ DOMAIN-SUFFIX,apple-relay.apple.com
 DOMAIN-SUFFIX,apple-relay.cloudflare.com
 DOMAIN-SUFFIX,apple-relay.fastly-edge.com
 DOMAIN-SUFFIX,cp4.cloudflare.com
+DOMAIN-SUFFIX,apple-dns.net
+DOMAIN-SUFFIX,mask.icloud.com
+DOMAIN-SUFFIX,mask-h2.icloud.com
+DOMAIN-SUFFIX,mask-api.icloud.com
 
 # --- 可选：仅精准代理 Geo-IP 检测，不影响地图 ---
 #DOMAIN,gspe1-ssl.ls.apple.com
